@@ -1,0 +1,92 @@
+#
+# Copyright 2016 6WIND S.A.
+
+attributes:
+
+  deploy_key:
+    value: ''
+    label: 'Certificate file'
+    description: 'defines the key used to deploy VA'
+    weight: 20
+    type: "file"
+
+  advanced_params_enabled:
+    value: false
+    label: "Advanced Parameters"
+    description: "Enables configuration of advanced parameters"
+    weight: 30
+    type: "checkbox"
+
+  admin_iface:
+    value: 'eth0'
+    label: 'ADMIN_IFACE'
+    description: 'specify the network interface used to connect to fuel master'
+    weight: 15
+    type: "text"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  fp_mem:
+    value: '1024'
+    label: 'FP_MEMORY'
+    description: 'defines how much memory from the hugepages is used by VA'
+    weight: 50
+    type: "text"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  cores_per_port:
+    value: '1'
+    label: 'CORE_PER_PORT'
+    description: 'defines the amount of cores polling each port'
+    weight: 15
+    type: "text"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  vm_mem:
+    value: 'auto'
+    label: 'VM_MEMORY'
+    description: 'defines the memory available for vms'
+    weight: 15
+    type: "text"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  va_conf_file:
+    value: ''
+    label: 'External configuration file for VA'
+    description: 'specify external configuration file for starting VA'
+    weight: 20
+    type: "file"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  ext_pack:
+    value: true
+    label: 'Use updated external packages'
+    description: 'Specify if need to use most uptodate external packages (libvirtd, qemu)'
+    weight: 70
+    type: "checkbox"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
+
+  infos:
+    weight: 80
+    type: "hidden"
+    value: true
+    label: "Important notes:"
+    description: "Before changing default settings for virtual Accelerator, please have a look at
+                  6WIND's Virtual Accelerator online documentation for applicable values:\n
+                    Product description:  http://www.6wind.com/products/6wind-virtual-accelerator/\n
+                    User Guide:           http://www.6wind.com/products/6wind-virtual-accelerator/\n"
+
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.use_def_settings.value == false"
+        action: hide
