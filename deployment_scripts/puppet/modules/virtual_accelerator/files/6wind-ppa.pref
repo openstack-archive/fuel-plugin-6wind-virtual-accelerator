@@ -1,0 +1,3 @@
+Package: *
+Pin: release o=LP-PPA-6wind-virt-mq-ppa
+Pin-Priority: 1100
