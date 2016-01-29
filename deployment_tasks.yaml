@@ -1,0 +1,48 @@
+- id: 6wind-virtual-accelerator
+  type: group
+  role: [6wind-virtual-accelerator]
+  requires: [compute]
+  required_for: [deploy_end]
+  parameters:
+   strategy:
+     type: one_by_one
+
+- id: 6wind-virtual-accelerator-update-packages
+  type: puppet
+  groups: [compute]
+  required_for: [fuel_pkgs]
+  requires: [deploy_start]
+  parameters:
+    puppet_manifest: puppet/manifests/external_repo.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
+- id: 6wind-virtual-accelerator-install
+  type: puppet
+  groups: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator-configure]
+  requires: [compute]
+  parameters:
+    puppet_manifest: puppet/manifests/install_va.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
+- id: 6wind-virtual-accelerator-configure
+  type: puppet
+  groups: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator]
+  requires: [6wind-virtual-accelerator-install]
+  parameters:
+    puppet_manifest: puppet/manifests/configure_va.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 240
+
+- id: 6wind-virtual-accelerator-start
+  type: puppet
+  role: [6wind-virtual-accelerator]
+  required_for: [post_deployment_end]
+  requires: [enable_nova_compute_service]
+  parameters:
+    puppet_manifest: puppet/manifests/start_va.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
