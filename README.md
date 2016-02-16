@@ -9,13 +9,6 @@ Fuel Plugin for Virtual Accelerator description
 User Guide
 ----------
     As first step clone this repository.
-
-    This version of the Fuel Virtual Accelerator plugin is designed to embed the
-    6WIND software internally.
-    In particular the virtual accelerator packages have to be put in the
-    repositories/{distrib}/ folder and the 6WIND openstack-app-note archive in
-    puppet/modules/virtual_accelerator/files/.
-
     When this step is done, the plugin can be correctly built with the following
     command:
     fpb --build fuel-plugin-6wind-virtual-accelerator

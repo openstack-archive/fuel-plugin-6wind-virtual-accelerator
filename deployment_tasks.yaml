@@ -17,11 +17,21 @@
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
 
+- id: 6wind-virtual-accelerator-setup-repo
+  type: puppet
+  groups: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator-install]
+  requires: [deploy_start]
+  parameters:
+    puppet_manifest: puppet/manifests/6wind_repo.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
 - id: 6wind-virtual-accelerator-install
   type: puppet
   groups: [6wind-virtual-accelerator]
   required_for: [6wind-virtual-accelerator-configure]
-  requires: [compute]
+  requires: [6wind-virtual-accelerator-setup-repo]
   parameters:
     puppet_manifest: puppet/manifests/install_va.pp
     puppet_modules: puppet/modules:/etc/puppet/modules

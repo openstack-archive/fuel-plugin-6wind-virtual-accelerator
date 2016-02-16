@@ -35,6 +35,9 @@ if $ext_pack == true {
       ensure => 'link',
       target => '/etc/init.d/libvirt-bin',
     } ->
+    exec { 'libvirt_bin_manual':
+      command => '/bin/echo manual > /etc/init/libvirt-bin.override',
+    } ->
     package { 'python-libvirt':
       ensure => 'latest',
     } ->

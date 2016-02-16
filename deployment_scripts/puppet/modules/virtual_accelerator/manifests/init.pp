@@ -19,13 +19,7 @@ class virtual_accelerator {
   if $settings['va_conf_file'] {
     $va_conf_file = $settings['va_conf_file'][content]
   }
-
-  # Both these variables should not be hard-coded but it's just a temporary
-  # solution since this information won't be necessary in future releases of
-  # plugin
-  $app_note_version = "1.2.2"
-  $app_note_folder = "6wind-app-note-openstack-support-v${app_note_version}-ubuntu-14.04"
-  $app_note_archive_ext = ".tar.gz"
-  $app_note_archive = "${$app_note_folder}${$app_note_archive_ext}"
-
+  if $settings['va_license_file'] {
+    $va_license_file = $settings['va_license_file'][content]
+  }
 }
