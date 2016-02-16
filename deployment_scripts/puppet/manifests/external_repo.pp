@@ -9,7 +9,7 @@ $ext_pack = $settings['ext_pack']
 if $ext_pack == true {
 
     exec { 'add_6wind_ppa':
-      command => '/usr/bin/add-apt-repository -y ppa:6wind/virt-mq-ppa',
+      command => '/usr/bin/add-apt-repository -y ppa:6wind/virt-mq-current',
     } ->
     file { '/etc/apt/preferences.d/6wind-ppa.pref':
       owner   => 'root',

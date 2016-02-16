@@ -1,0 +1,3 @@
+Package: *
+Pin: origin "repo.6wind.com"
+Pin-Priority: 1100
