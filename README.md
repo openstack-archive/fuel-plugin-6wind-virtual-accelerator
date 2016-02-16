@@ -9,13 +9,6 @@ Fuel Plugin for Virtual Accelerator description
 User Guide
 ----------
     As first step clone this repository.
-
-    This version of the Fuel Virtual Accelerator plugin is designed to embed the
-    6WIND software internally.
-    In particular the virtual accelerator packages have to be put in the
-    repositories/{distrib}/ folder and the 6WIND openstack-app-note archive in
-    puppet/modules/virtual_accelerator/files/.
-
     When this step is done, the plugin can be correctly built with the following
     command:
     fpb --build fuel-plugin-6wind-virtual-accelerator
@@ -31,6 +24,9 @@ User Guide
     2. Click on the Settings tab of the Fuel Web UI.
     3. Scroll down the page, select the plugin checkbox and edit options
        (if desired).
+       In particular it is mandatory to provide the 6WIND base64 credentials
+       package for software download.
+       Contact 6WIND support team for more information.
     4. Associate both 6WIND Virtual Accelerator and Compute roles with nodes
        you want to accelerate
     5. Start deployment
@@ -52,11 +48,8 @@ None.
 Known issues
 ------------
 
-The current plugin implementation (version 1.0.0) embeds 6WIND software forcing
-end-user to perform the build phase.
-This is only a temporary solution since future releases will support proper
-download of these packages from a remote repository during deployment.
-You need to contact 6WIND to be able to access this repository.
+The plugin does not create nova flavors with huge page support. End users are
+responsible to create those flavors.
 
 Release Notes
 -------------

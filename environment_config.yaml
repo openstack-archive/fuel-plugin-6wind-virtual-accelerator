@@ -1,5 +1,12 @@
 attributes:
 
+  credentials_package:
+    value: ''
+    label: 'Credentials package'
+    description: 'base64 credentials file'
+    weight: 20
+    type: "file"
+
   advanced_params_enabled:
     value: false
     label: "Advanced Parameters"
@@ -7,11 +14,21 @@ attributes:
     weight: 30
     type: "checkbox"
 
+  va_license_file:
+    value: ''
+    label: "LICENSE FILE"
+    description: "license file used to activate VA"
+    weight: 35
+    type: "file"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
+        action: hide
+
   fp_mem:
     value: '1024'
     label: 'FP_MEMORY'
-    description: 'defines how much memory from the hugepages is used by VA'
-    weight: 50
+    description: 'defines how much memory is used by VA'
+    weight: 40
     type: "text"
     restrictions:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
@@ -21,7 +38,7 @@ attributes:
     value: '1'
     label: 'CORE_PER_PORT'
     description: 'defines the amount of cores polling each port'
-    weight: 15
+    weight: 40
     type: "text"
     restrictions:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
@@ -31,7 +48,7 @@ attributes:
     value: 'auto'
     label: 'VM_MEMORY'
     description: 'defines the memory available for vms'
-    weight: 15
+    weight: 40
     type: "text"
     restrictions:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
@@ -41,7 +58,7 @@ attributes:
     value: ''
     label: 'External configuration file for VA'
     description: '(optional) specify external configuration file for starting VA'
-    weight: 20
+    weight: 50
     type: "file"
     restrictions:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"

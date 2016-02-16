@@ -8,6 +8,18 @@ class virtual_accelerator::config inherits virtual_accelerator {
   file { '/etc/apparmor.d/disable/usr.sbin.libvirtd':
     ensure => 'link',
     target => '/etc/apparmor.d/usr.sbin.libvirtd',
+  } ->
+  exec {'disable_apparmor':
+    command => "apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd",
+  } ->
+  file { '/etc/init/cpu-cgroup.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => 0644,
+    source => 'puppet:///modules/virtual_accelerator/cpu-cgroup.conf',
+  } ->
+  exec {'mount_cgroup':
+    command  => "service cpu-cgroup start",
   }
 
   $fp_mem = $virtual_accelerator::fp_mem
@@ -47,5 +59,15 @@ class virtual_accelerator::config inherits virtual_accelerator {
         path    => '/usr/local/bin/',
       }
     }
+
+    $license_file = $virtual_accelerator::va_license_file
+
+    if $license_file != '' and $license_file != undef {
+      file {"/usr/local/etc/va.lic":
+        ensure  => file,
+        content => $license_file,
+      }
+    }
+
   }
 }
