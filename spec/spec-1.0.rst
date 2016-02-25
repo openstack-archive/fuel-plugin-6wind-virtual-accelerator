@@ -1,0 +1,122 @@
+..
+ This work is licensed under a Creative Commons Attribution 3.0 Unported
+ License.
+
+ http://creativecommons.org/licenses/by/3.0/legalcode
+
+======================================================
+Fuel Plugin for 6WIND virtual accelerator installation
+======================================================
+
+The Fuel plugin for 6WIND virtual accelerator allows to install and integrate
+the virtual accelerator on desired nodes (compute) running Mirantis Openstack 7.0.
+
+This plugin uses the Fuel pluggable architecture and it must be compatible with
+(at least) the version 7.0 of Mirantis OpenStack.
+
+Problem description
+===================
+
+
+
+Proposed change
+===============
+
+Implement a Fuel plugin which will perform all the necessary steps to install
+and configure Mirantis OpenStack nodes to use the 6WIND virtual accelerator.
+
+Alternatives
+------------
+
+Data model impact
+-----------------
+
+REST API impact
+---------------
+
+Upgrade impact
+--------------
+
+When upgrading to newer versions of Mirantis Openstack, this plugin should be
+upgraded accordingly.
+
+Security impact
+---------------
+
+Notifications impact
+--------------------
+
+Other end user impact
+---------------------
+
+After plugin installation, the end user can enable it on the Setting tab of the
+Fuel web UI and customize plugin settings.
+
+Performance Impact
+------------------
+
+Other deployer impact
+---------------------
+
+Developer impact
+----------------
+
+Implementation
+==============
+
+Assignee(s)
+-----------
+
+Primary assignee:
+
+- Francesco Santoro <francesco.santoro@6wind.com>
+
+Other contributors:
+
+- Samuel Gauthier <samuel.gauthier@6wind.com> - developer
+- Karim Mchirki   <karim.mchirki@6wind.com> - developer
+
+Work Items
+----------
+
+* Create test environment (physical servers or KVM based vms)
+* Create Fuel plugin bundle (containing deployments scripts, puppet modules and
+  metadata)
+* Implement puppet modules with the following functions:
+
+ - Retrieve 6WIND virtual accelerator software from repository
+ - Eventually updates libvirt and qemu Mirantis Openstack packages on compute nodes
+ - 6WIND virtual accelerator deployment on selected OpenStack nodes
+ - Configure Mirantis Openstack to support 6WIND virtual accelerator
+
+* Test 6WIND virtual accelerator plugin
+* Create Documentation
+
+
+Dependencies
+============
+
+* Fuel 7.0
+* Hypervisor with KVM capability
+
+Testing
+=======
+
+* Sanity checks including plugin build
+* Syntax check
+* Functional testing
+* Non-functional testing (Destructive and Negative)
+
+Documentation Impact
+====================
+
+* Deployment Guide (how to prepare environment for plugin installation and configuration before MOS deployment)
+* User Guide (list of features the plugin provides, how to customize them in the deployed MOS environment)
+* Test Plan
+* Test Report
+
+References
+==========
+
+* Fuel 7.0 Plug-in Guide https://docs.mirantis.com/openstack/fuel/fuel-7.0/plugin-dev.html
+* 6WIND virtual accelerator product info http://www.6wind.com/products/6wind-virtual-accelerator/
