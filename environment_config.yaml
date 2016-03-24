@@ -74,6 +74,16 @@ attributes:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
         action: hide
 
+  disable_ipset:
+    value: true
+    label: 'Disable neutron ipset'
+    description: 'Set/unset support for ipset when using security groups'
+    weight: 75
+    type: "checkbox"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
+        action: hide
+
   infos:
     weight: 80
     type: "hidden"

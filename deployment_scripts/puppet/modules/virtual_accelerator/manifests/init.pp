@@ -15,6 +15,7 @@ class virtual_accelerator {
   $cores_per_port = $settings['cores_per_port']
   $vm_mem = $settings['vm_mem']
   $va_conf_file = ''
+  $disable_ipset = $settings['disable_ipset']
 
   if $settings['va_conf_file'] {
     $va_conf_file = $settings['va_conf_file'][content]
