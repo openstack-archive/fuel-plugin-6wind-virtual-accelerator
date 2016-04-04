@@ -28,7 +28,7 @@ package { "6wind-authentication-credentials":
   source   => "/tmp/6wind-authentication-credentials.deb"
 } ->
 exec { 'retrieve_va_repo':
-  command => "/usr/bin/curl --cacert /usr/local/etc/certs/ca.crt --key /usr/local/etc/certs/client.key --cert /usr/local/etc/certs/client.crt -o /tmp/6wind-virtual-accelerator-repository.deb https://repo.6wind.com/virtual-accelerator/ubuntu-14.04/$(dpkg --print-architecture)/${va_version}/6wind-virtual-accelerator-ubuntu-14.04-repository_${va_version}-1_$(dpkg --print-architecture).deb",
+  command => "/usr/bin/curl --cacert /usr/local/etc/certs/6wind_ca.crt --key /usr/local/etc/certs/6wind_client.key --cert /usr/local/etc/certs/6wind_client.crt -o /tmp/6wind-virtual-accelerator-repository.deb https://repo.6wind.com/virtual-accelerator/ubuntu-14.04/$(dpkg --print-architecture)/${va_version}/6wind-virtual-accelerator-ubuntu-14.04-repository_${va_version}-1_$(dpkg --print-architecture).deb",
 } ->
 package { "6wind-virtual-accelerator-repository":
   provider => 'dpkg',
@@ -36,7 +36,7 @@ package { "6wind-virtual-accelerator-repository":
   source   => "/tmp/6wind-virtual-accelerator-repository.deb"
 } ->
 exec { 'retrieve_app_note_repo':
-  command => "/usr/bin/curl --cacert /usr/local/etc/certs/ca.crt --key /usr/local/etc/certs/client.key --cert /usr/local/etc/certs/client.crt -o /tmp/6wind-openstack-extensions-repository.deb https://repo.6wind.com/openstack-extensions/ubuntu-14.04/all/${app_note_version}/6wind-openstack-extensions-ubuntu-14.04-repository_${app_note_version}-1_all.deb",
+  command => "/usr/bin/curl --cacert /usr/local/etc/certs/6wind_ca.crt --key /usr/local/etc/certs/6wind_client.key --cert /usr/local/etc/certs/6wind_client.crt -o /tmp/6wind-openstack-extensions-repository.deb https://repo.6wind.com/openstack-extensions/ubuntu-14.04/all/${app_note_version}/6wind-openstack-extensions-ubuntu-14.04-repository_${app_note_version}-1_all.deb",
 } ->
 package { "6wind-openstack-extensions-repository":
   provider => 'dpkg',
