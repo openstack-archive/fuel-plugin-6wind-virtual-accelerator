@@ -93,7 +93,9 @@ Configuring 6WIND virtual accelerator Plugin
 #.  Please select Neutron networking.
     The 6WIND virtual accelerator supports all tunneling models (VXLAN, GRE) and
     VLAN segmentation.
-    For GRE segmentation you need to enable it from Fuel CLI
+    For GRE segmentation you need to enable it from Fuel CLI.
+
+    It is **strongly recommended to use VXLAN** (or GRE) tunneling.
 
     .. image:: images/network.png
        :width: 80%
@@ -120,7 +122,9 @@ Configuring 6WIND virtual accelerator Plugin
     .. image:: images/node-roles.png
        :width: 100%
 
-#.  Configure nodes to use a dedicated link for Neutron networking:
+#.  Configure nodes to use a dedicated link for Neutron networking.
+
+    This step is recommended when using VXLAN/GRE but **mandatory** for VLAN scenarios.
 
     *   Select the Compute and 6WIND Virtual Accelerator node and configre its
         interfaces.
