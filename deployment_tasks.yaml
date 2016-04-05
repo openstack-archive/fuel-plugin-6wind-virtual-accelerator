@@ -59,7 +59,7 @@
 
 - id: 6wind-virtual-accelerator-neutron-conf
   type: puppet
-  role: ['controller', 'primary-controller', '6wind-virtual-accelerator']
+  role: ['primary-controller', '6wind-virtual-accelerator']
   required_for: [post_deployment_end]
   requires: [post_deployment_start]
   parameters:

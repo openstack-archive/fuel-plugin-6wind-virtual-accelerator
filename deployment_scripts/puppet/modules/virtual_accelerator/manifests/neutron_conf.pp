@@ -5,8 +5,7 @@ class virtual_accelerator::neutron_conf inherits virtual_accelerator {
 
   $advanced_params = $virtual_accelerator::advanced_params
 
-  if $advanced_params == true {
-    $disable_ipset = $virtual_accelerator::disable_ipset
+  $disable_ipset = $virtual_accelerator::disable_ipset
 
     if $disable_ipset == true {
 
@@ -24,8 +23,7 @@ class virtual_accelerator::neutron_conf inherits virtual_accelerator {
 	  exec { 'restart_ovs_agent':
 	     command => 'service neutron-plugin-openvswitch-agent restart',
 	  }
-	}
-
   }
+
 }
 
