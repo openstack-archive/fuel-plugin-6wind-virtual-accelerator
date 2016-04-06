@@ -5,12 +5,12 @@ class virtual_accelerator::service inherits virtual_accelerator {
 
   $NOVA_CONF_FILE = "/etc/nova/nova.conf"
 
+  exec { 'vcpu_pin':
+     command => "crudini --set ${NOVA_CONF_FILE} DEFAULT vcpu_pin_set $(python /usr/local/bin/get_vcpu_pin_set.py)",
+  } ->
   service { 'virtual-accelerator':
     ensure => 'running',
   } ->
-  exec { 'vcpu_pin':
-     command => "crudini --set ${NOVA_CONF_FILE} DEFAULT vcpu_pin_set $(python /usr/local/bin/get_vcpu_pin_set.py)",
-  }
   exec { 'restart_ovs':
      command => 'service openvswitch-switch restart',
   } ->
