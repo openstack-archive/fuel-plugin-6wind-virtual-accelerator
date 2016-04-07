@@ -1,0 +1,8 @@
+.. Copyright 2016, 6WIND S.A.
+
+Introduction
+============
+
+This folder contains scripts to be used when testing the 6WIND virtual accelerator Fuel plugin.
+Please refer to TestPlan document for more details on how to use these scripts.
+
