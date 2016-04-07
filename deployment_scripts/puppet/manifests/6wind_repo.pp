@@ -5,7 +5,6 @@ notice('MODULAR: virtual_accelerator/6wind_repo.pp')
 
 $settings = hiera('6wind-virtual-accelerator', {})
 
-$app_note_version = "1.2"
 $va_version = "1.3"
 
 $cred_package_content = $settings['credentials_package'][content]
@@ -35,17 +34,6 @@ package { "6wind-virtual-accelerator-repository":
   ensure   => 'installed',
   source   => "/tmp/6wind-virtual-accelerator-repository.deb"
 } ->
-exec { 'retrieve_app_note_repo':
-  command => "/usr/bin/curl --cacert /usr/local/etc/certs/6wind_ca.crt --key /usr/local/etc/certs/6wind_client.key --cert /usr/local/etc/certs/6wind_client.crt -o /tmp/6wind-openstack-extensions-repository.deb https://repo.6wind.com/openstack-extensions/ubuntu-14.04/all/${app_note_version}/6wind-openstack-extensions-ubuntu-14.04-repository_${app_note_version}-1_all.deb",
-} ->
-package { "6wind-openstack-extensions-repository":
-  provider => 'dpkg',
-  ensure   => 'installed',
-  source   => "/tmp/6wind-openstack-extensions-repository.deb"
-} ->
-file { '/etc/apt/preferences.d/6wind-virtual-accelerator.pref':
-  owner   => 'root',
-  group   => 'root',
-  mode    => 0644,
-  source => 'puppet:///modules/virtual_accelerator/6wind-virtual-accelerator.pref',
+exec { 'increase_repo_priority':
+  command => "/bin/sed -i 's#Pin-Priority: .*#Pin-Priority: 1100##' /etc/apt/preferences.d/6wind-virtual-accelerator",
 }
