@@ -1,0 +1,10 @@
+Code-Review+2: Francesco Santoro <francesco.santoro@6wind.com>
+Code-Review+1: Irina <ipovolotskaya@mirantis.com>
+Code-Review+2: Vincent Jardin <vincent.jardin@6wind.com>
+Workflow+1: Vincent Jardin <vincent.jardin@6wind.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Wed, 27 Apr 2016 14:56:40 +0000
+Reviewed-on: https://review.openstack.org/310487
+Project: openstack/fuel-plugin-6wind-virtual-accelerator
+Branch: refs/heads/master
