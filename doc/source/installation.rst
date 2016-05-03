@@ -140,6 +140,11 @@ Configuring 6WIND virtual accelerator Plugin
     *   Perform these two steps for the Controller node too and choose the NIC
         accordingly.
 
+#.  Verify nodes network connectivity (in the Fuel Web UI Network tab)
+
+    .. image:: images/connectivity.png
+       :width: 100%
+
 #.  Press **Deploy changes** to `deploy the environment <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html#
     deploy-changes>`_.
 
