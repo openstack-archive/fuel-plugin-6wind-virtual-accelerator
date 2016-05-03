@@ -19,8 +19,8 @@ class virtual_accelerator::config inherits virtual_accelerator {
     mode    => 0644,
     source => 'puppet:///modules/virtual_accelerator/cpu-cgroup.conf',
   } ->
-  exec {'mount_cgroup':
-    command  => "service cpu-cgroup start",
+  service { 'cpu-cgroup':
+    ensure => 'running',
   }
 
   $fp_mem = $virtual_accelerator::fp_mem
