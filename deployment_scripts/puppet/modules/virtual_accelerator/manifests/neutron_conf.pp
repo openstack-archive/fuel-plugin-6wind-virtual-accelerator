@@ -21,7 +21,7 @@ class virtual_accelerator::neutron_conf inherits virtual_accelerator {
 	     command => 'service openvswitch-switch restart',
 	  } ->
 	  exec { 'restart_ovs_agent':
-	     command => 'service neutron-plugin-openvswitch-agent restart',
+	     command => 'sleep 5 && service neutron-plugin-openvswitch-agent restart',
 	  }
   }
 
