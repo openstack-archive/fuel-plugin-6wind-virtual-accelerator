@@ -16,13 +16,17 @@ class virtual_accelerator::neutron_conf inherits virtual_accelerator {
 	  } ->
 	  exec { 'disable_ipset':
 	     command => "crudini --set ${OVS_CONF_FILE} securitygroup enable_ipset False",
-	  } ->
-	  exec { 'restart_ovs':
-	     command => 'service openvswitch-switch restart',
-	  } ->
-	  exec { 'restart_ovs_agent':
-	     command => 'service neutron-plugin-openvswitch-agent restart',
+	     notify => Service['openvswitch-switch'],
 	  }
+
+	  service { 'openvswitch-switch':
+	     ensure => 'running',
+	     notify => Service['neutron-plugin-openvswitch-agent'],
+	  }
+
+	  service { 'neutron-plugin-openvswitch-agent':
+	     ensure => 'running',
+      }
   }
 
 }
