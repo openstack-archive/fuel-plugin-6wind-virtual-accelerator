@@ -4,12 +4,12 @@
 # Plugin name
 name: 6wind-virtual-accelerator
 # Human-readable name for your plugin
-title: 6WIND Virtual accelerator fuel plugin
+title: 6WIND Virtual accelerator Fuel plugin
 # Plugin version
 version: '1.0.3'
 # Description
 description: Enable use of 6WIND virtual accelerator plugin for Neutron
-# Required fuel version
+# Required Fuel version
 fuel_version: ['7.0', '8.0']
 # Specify license of your plugin
 licenses: ['Apache License Version 2.0']

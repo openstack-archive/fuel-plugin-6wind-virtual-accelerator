@@ -7,7 +7,7 @@ function set_fp_opt() {
 		sed -i -- 's@^#\?: \${'"$1"':=.*@: ${'"$1"':='"$2"'}@' "$3";
 	else
 		echo >> $3;
-		echo '# Config added by VA fuel plugin' >> $3;
+		echo '# Config added by VA Fuel plugin' >> $3;
 		echo ': ${'"$1"':='"$2"'}' >> $3;
 	fi
 }

@@ -21,7 +21,7 @@ Configuring 6WIND virtual accelerator parameters
 The 6WIND virtual accelerator plugin makes possible to modify these default
 configuration parameters before deployment.
 In order to do this you need to activate the **Advanced parameters** checkbox
-in the 6WIND Virtual Accelerator fuel plugin section in the Web UI Settings tab.
+in the 6WIND Virtual Accelerator Fuel plugin section in the Web UI Settings tab.
 
     .. image:: images/advanced.png
        :width: 100%
