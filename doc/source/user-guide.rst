@@ -37,6 +37,13 @@ you can upload it to the nodes having the 6WIND Virtual Accelerator role enabled
 Note, this file will replace the default virtual accelerator configuration file
 and overload all the defined configuration paramaters.
 
+It is **strongly recommended** to provide a license file if you have one.
+Without license the plugin will still correclty install the
+6wind virtual accelerator but it will run in evaluation mode (48 hours).
+At the end of the evaluation period you will experience significant performance
+degradation and loss of connectivity for your instances since there will be
+nomore any hugepages backing.
+
 Use updated libvirt and qemu packages
 -------------------------------------
 
