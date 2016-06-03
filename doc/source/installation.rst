@@ -106,7 +106,9 @@ Configuring 6WIND virtual accelerator Plugin
 
     *   Provide base64 credentials package you received from 6WIND support team
 
-    *   Refer to next chapter for detailed field description and configuration
+    *   Refer to next chapter for detailed field description and configuration.
+        In particular if you have a **license file** you should upload it at this time
+        in the Advanced Paramaters menu.
 
 
 #.  Add nodes and assign them the following roles:
