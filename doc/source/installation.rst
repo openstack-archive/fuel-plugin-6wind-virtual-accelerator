@@ -61,19 +61,19 @@ Installing 6WIND virtual accelerator Plugin
 #.  Copy the downloaded rpm to the Fuel Master node:
     ::
 
-        scp 6wind-virtual-accelerator-1.0-1.0.0-1.noarch.rpm  <Fuel Master node ip>:/tmp/
+        scp 6wind-virtual-accelerator-1.0-1.0.3-1.noarch.rpm  <Fuel Master node ip>:/tmp/
 
 #.  Log into the Fuel Master node and install the plugin
     ::
 
         ssh <the Fuel Master node ip>
-        fuel plugins --install /tmp/6wind-virtual-accelerator-1.0-1.0.0-1.noarch.rpm
+        fuel plugins --install /tmp/6wind-virtual-accelerator-1.0-1.0.3-1.noarch.rpm
 
 #.  Now verify that the plugin is correctly installed
     ::
 
         fuel plugins
-        3  | 6wind-virtual-accelerator | 1.0.0   | 3.0.0
+        3  | 6wind-virtual-accelerator | 1.0.3   | 3.0.0
 
     ..
 
