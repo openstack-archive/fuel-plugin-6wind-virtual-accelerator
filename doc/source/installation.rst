@@ -35,10 +35,11 @@ compute(s) the following requirements are mandatory:
 #.   Internet connectivity on Master node (since the plugin will download software from 6WIND remote repositories)
 #.   A dedicated link for Neutron networking tunnels between Compute and Network
 
-For networking all tunneling options are supported, namely VLAN, VXLAN and GRE.
-It is mandatory to use a dedicated physical network interface for your tunnels
+This version of plugin supports only VLAN as networking tunneling option.
+It is mandatory to use a dedicated physical network interface for your tunnel
 instead of the default Fuel setup that puts this interface on the same used
 for pxe and management.
+Support for VxLAN and for bridged VLAN will be available in future releases.
 
 The 6WIND virtual accelerator needs qemu and libvirt supporting vhostuser and
 multiqueue features to correclty run its fast packet processing stack.
@@ -91,11 +92,7 @@ Configuring 6WIND virtual accelerator Plugin
        :width: 80%
 
 #.  Please select Neutron networking.
-    The 6WIND virtual accelerator supports all tunneling models (VXLAN, GRE) and
-    VLAN segmentation.
-    For GRE segmentation you need to enable it from Fuel CLI.
-
-    It is **strongly recommended to use VXLAN** (or GRE) tunneling.
+    The 6WIND virtual accelerator supports only VLAN segmentation.
 
     .. image:: images/network.png
        :width: 80%
@@ -123,8 +120,6 @@ Configuring 6WIND virtual accelerator Plugin
        :width: 100%
 
 #.  Configure nodes to use a dedicated link for Neutron networking.
-
-    This step is recommended when using VXLAN/GRE but **mandatory** for VLAN scenarios.
 
     *   Select the Compute and 6WIND Virtual Accelerator node and configre its
         interfaces.
