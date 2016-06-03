@@ -63,7 +63,7 @@ class virtual_accelerator::config inherits virtual_accelerator {
     $license_file = $virtual_accelerator::va_license_file
 
     if $license_file != '' and $license_file != undef {
-      file {"/usr/local/etc/va.lic":
+      file {"/usr/local/etc/6wind_va.lic":
         ensure  => file,
         content => $license_file,
       }
