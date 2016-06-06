@@ -18,7 +18,7 @@ NB_EXCEPTIONS=$(expr $NB_EXCEPTIONS_AFTER - $NB_EXCEPTIONS_BEFORE)
 
 # Here we verify 2 things.
 # The first check wants to assure that the packets received by the spawned vm
-# were processed by 6WIND virtual accelerator and not sent to slow path (exception).
+# were processed by 6WIND Virtual Accelerator and not sent to slow path (exception).
 # The second check wants to assure that this traffic towards the vm correctly
 # passed via the accelerated ovs.
 # This is a simple heuristics but it should be enough.
