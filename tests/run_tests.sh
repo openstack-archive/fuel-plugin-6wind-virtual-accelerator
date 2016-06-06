@@ -29,10 +29,10 @@ if [[ $? -eq 1 ]]; then
     exit 1
 fi
 
-echo "Verify that network interface is managed by virtual accelerator"
+echo "Verify that network interface is managed by Virtual Accelerator"
 ssh root@$COMPUTE 'bash /root/compute_verify_driver.sh'
 if [[ $? -eq 1 ]]; then
-    echo "TEST FAILED: Virtual machine network interface is not managed by 6WIND virtual accelerator. Exiting..."
+    echo "TEST FAILED: Virtual machine network interface is not managed by 6WIND Virtual Accelerator. Exiting..."
     cleanup
     exit 1
 fi
@@ -45,7 +45,7 @@ if [[ $? -eq 1 ]]; then
     exit 1
 fi
 
-echo "Check virtual accelerator statistics before traffic"
+echo "Check Virtual Accelerator statistics before traffic"
 ssh root@$COMPUTE 'bash /root/compute_check_stats_before.sh'
 if [[ $? -eq 1 ]]; then
     echo "TEST FAILED: Unable to retrieve virtual interface pre-stats. Exiting..."
@@ -61,7 +61,7 @@ if [[ $? -eq 1 ]]; then
     exit 1
 fi
 
-echo "Check virtual accelerator statistics after traffic"
+echo "Check Virtual Accelerator statistics after traffic"
 ssh root@$COMPUTE 'bash /root/compute_check_stats_after.sh'
 if [[ $? -eq 1 ]]; then
     echo "TEST FAILED: A part or all the traffic sent was not accelerated"
