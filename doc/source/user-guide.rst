@@ -4,21 +4,21 @@ User Guide
 This section provides a deeper explanation of plugin parameters and a description
 of required steps to verify that everything is working fine after deployment.
 
-Note that this User Guide provides information on 6WIND virtual accelerator
-plugin for Fuel (and not on the 6WIND virtual accelerator software itself).
+Note that this User Guide provides information on 6WIND Virtual Accelerator
+plugin for Fuel (and not on the 6WIND Virtual Accelerator software itself).
 `Contact 6WIND <http://www.6wind.com/company-profile/contact-us/>`_
-to obtain more details on how to retrieve the virtual accelerator software and
+to obtain more details on how to retrieve the Virtual Accelerator software and
 its documentation.
 
-When configuring the 6WIND virtual accelerator Fuel plugin, you have to provide
-credentials for virtual accelerator software download.
-The plugin will then install and run the virtual accelerator using its default
+When configuring the 6WIND Virtual Accelerator Fuel plugin, you have to provide
+credentials for Virtual Accelerator software download.
+The plugin will then install and run the Virtual Accelerator using its default
 configuration values.
 
-Configuring 6WIND virtual accelerator parameters
+Configuring 6WIND Virtual Accelerator parameters
 ------------------------------------------------
 
-The 6WIND virtual accelerator plugin makes possible to modify these default
+The 6WIND Virtual Accelerator plugin makes possible to modify these default
 configuration parameters before deployment.
 In order to do this you need to activate the **Advanced parameters** checkbox
 in the 6WIND Virtual Accelerator Fuel plugin section in the Web UI Settings tab.
@@ -28,18 +28,18 @@ in the 6WIND Virtual Accelerator Fuel plugin section in the Web UI Settings tab.
 
 At this point some additional fields will show up and you will be able to edit
 with your desired values.
-Please contact 6WIND support team or refer to 6WIND virtual accelerator documentation
+Please contact 6WIND support team or refer to 6WIND Virtual Accelerator documentation
 for more information on the meaning of these fields.
 
 
-If you already have a virtual accelerator configuration file,
+If you already have a Virtual Accelerator configuration file,
 you can upload it to the nodes having the 6WIND Virtual Accelerator role enabled.
-Note, this file will replace the default virtual accelerator configuration file
+Note, this file will replace the default Virtual Accelerator configuration file
 and overload all the defined configuration paramaters.
 
 It is **strongly recommended** to provide a license file if you have one.
 Without license the plugin will still correclty install the
-6WIND virtual accelerator but it will run in evaluation mode (48 hours).
+6WIND Virtual Accelerator but it will run in evaluation mode (48 hours).
 At the end of the evaluation period you will experience significant performance
 degradation and loss of connectivity for your instances since there will be
 nomore any hugepages backing.
@@ -48,12 +48,12 @@ Use updated libvirt and qemu packages
 -------------------------------------
 
 As briefly described in the installation section, in order to correctly spawn
-virtual machines using the accelerated network stack 6WIND virtual accelerator
+virtual machines using the accelerated network stack 6WIND Virtual Accelerator
 provides, the compute nodes need to run recent versions of libvirt and qemu
 packages.
 
 
-By default the 6WIND virtual accelerator Fuel plugin retrieves and installs
+By default the 6WIND Virtual Accelerator Fuel plugin retrieves and installs
 its updated libvirt and qemu packages from a remote repository maintained by 6WIND.
 It is possible to force the plugin to keep the default libvirt and qemu packages
 provided by the Linux distribution.
@@ -61,15 +61,15 @@ provided by the Linux distribution.
 
 To do this simply unselect the **Use updated external packages** checkbox.
 Note, default libvirt and qemu packages on MOS 7.0 do not have all the features
-required for proper 6WIND virtual accelerator integration. Thus we strongly
+required for proper 6WIND Virtual Accelerator integration. Thus we strongly
 advise to keep the **Use updated external packages** enabled.
 
 Sanity checks after deployment
 ------------------------------
 
 The installation section of this document described how to correctly start a
-Fuel deployment using the 6WIND virtual accelerator plugin.
-At the end of this process the 6WIND virtual accelerator and its dependent
+Fuel deployment using the 6WIND Virtual Accelerator plugin.
+At the end of this process the 6WIND Virtual Accelerator and its dependent
 components should be all up and running.
 
 As first step make sure that the system uses the proper libvirt and qemu
@@ -87,10 +87,10 @@ versions.
 
         aptitude show qemu-system-x86 | grep Version
 
-The next step is checking that the 6WIND virtual accelerator software and
+The next step is checking that the 6WIND Virtual Accelerator software and
 its Openstack extensions have been correctly installed.
 
-#. Check 6WIND virtual accelerator package status (should be **State: installed**)
+#. Check 6WIND Virtual Accelerator package status (should be **State: installed**)
 
     ::
 
@@ -123,7 +123,7 @@ To do that please refer to `6WIND Openstack extensions official documentation <h
 Known issues
 ============
 
-The current implementation of the 6WIND virtual accelerator plugin uses a credentials
+The current implementation of the 6WIND Virtual Accelerator plugin uses a credentials
 package in base64 format for 6WIND software download.
 This behavior should be replaced using a regular credentials package instead of
 its base64 encoding.

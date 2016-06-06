@@ -1,14 +1,14 @@
 Introduction
 ============
 
-This document contains instructions for installing and configuring 6WIND virtual
-accelerator plugin for Fuel.
+This document contains instructions for installing and configuring 6WIND Virtual
+Accelerator plugin for Fuel.
 
 Key terms, acronyms and abbreviations
 -------------------------------------
 
 +---------------------------+---------------------------+
-| 6WIND virtual accelerator |                           |
+| 6WIND Virtual Accelerator |                           |
 |                           |                           |
 +---------------------------+---------------------------+
 | VA                        | 6WIND Virtual Accelerator |
@@ -129,5 +129,5 @@ Licensing information
 ---------------------
 
 +---------------------------+------------+
-| 6WIND virtual accelerator | Commercial |
+| 6WIND Virtual Accelerator | Commercial |
 +---------------------------+------------+

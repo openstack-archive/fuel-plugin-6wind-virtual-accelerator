@@ -5,11 +5,11 @@
  http://creativecommons.org/licenses/by/3.0/legalcode
 
 ======================================================
-Fuel Plugin for 6WIND virtual accelerator installation
+Fuel Plugin for 6WIND Virtual Accelerator installation
 ======================================================
 
-The Fuel plugin for 6WIND virtual accelerator allows to install and integrate
-the virtual accelerator on desired nodes (compute) running Mirantis Openstack 7.0.
+The Fuel plugin for 6WIND Virtual Accelerator allows to install and integrate
+the Virtual Accelerator on desired nodes (compute) running Mirantis Openstack 7.0.
 
 This plugin uses the Fuel pluggable architecture and it must be compatible with
 (at least) the version 7.0 of Mirantis OpenStack.
@@ -23,7 +23,7 @@ Proposed change
 ===============
 
 Implement a Fuel plugin which will perform all the necessary steps to install
-and configure Mirantis OpenStack nodes to use the 6WIND virtual accelerator.
+and configure Mirantis OpenStack nodes to use the 6WIND Virtual Accelerator.
 
 Alternatives
 ------------
@@ -95,12 +95,12 @@ Work Items
   metadata)
 * Implement puppet modules with the following functions:
 
- - Retrieve 6WIND virtual accelerator software from repository
+ - Retrieve 6WIND Virtual Accelerator software from repository
  - Eventually updates libvirt and qemu Mirantis Openstack packages on compute nodes
- - 6WIND virtual accelerator deployment on selected OpenStack nodes
- - Configure Mirantis Openstack to support 6WIND virtual accelerator
+ - 6WIND Virtual Accelerator deployment on selected OpenStack nodes
+ - Configure Mirantis Openstack to support 6WIND Virtual Accelerator
 
-* Test 6WIND virtual accelerator plugin
+* Test 6WIND Virtual Accelerator plugin
 * Create Documentation
 
 
@@ -131,4 +131,4 @@ References
 ==========
 
 * Fuel 7.0 Plug-in Guide https://docs.mirantis.com/openstack/fuel/fuel-7.0/plugin-dev.html
-* 6WIND virtual accelerator product info http://www.6wind.com/products/6wind-virtual-accelerator/
+* 6WIND Virtual Accelerator product info http://www.6wind.com/products/6wind-virtual-accelerator/

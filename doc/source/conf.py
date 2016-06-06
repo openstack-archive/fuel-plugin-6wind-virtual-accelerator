@@ -49,7 +49,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'The 6WIND virtual accelerator plugin for Fuel'
+project = u'The 6WIND Virtual Accelerator plugin for Fuel'
 copyright = u'2016, 6WIND SA.'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -202,7 +202,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'fuel-plugin-6wind-va.tex', u'The 6WIND virtual accelerator Plugin for Fuel Documentation',
+  ('index', 'fuel-plugin-6wind-va.tex', u'The 6WIND Virtual Accelerator Plugin for Fuel Documentation',
    u'6WIND SA', 'manual'),
 ]
 
@@ -236,7 +236,7 @@ latex_elements = { 'classoptions': ',openany,oneside', 'babel' : '\\usepackage[e
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'fuel-plugin-6wind-va', u'Guide to the 6WIND virtual accelerator Plugin ver. 1.0-1.0.0-1 for Fuel',
+    ('index', 'fuel-plugin-6wind-va', u'Guide to the 6WIND Virtual Accelerator Plugin ver. 1.0-1.0.0-1 for Fuel',
      [u'6WIND SA'], 1)
 ]
 
@@ -250,8 +250,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'fuel-plugin-6wind-va', u'The 6WIND virtual accelerator Plugin for Fuel Documentation',
-   u'6WIND SA', 'fuel-plugin-6wind-va', 'The 6WIND virtual accelerator Plugin for Fuel Documentation',
+  ('index', 'fuel-plugin-6wind-va', u'The 6WIND Virtual Accelerator Plugin for Fuel Documentation',
+   u'6WIND SA', 'fuel-plugin-6wind-va', 'The 6WIND Virtual Accelerator Plugin for Fuel Documentation',
    'Miscellaneous'),
 ]
 
@@ -276,7 +276,7 @@ pdf_inline_footnotes = True
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
-epub_title = u'The 6WIND virtual accelerator Plugin for Fuel'
+epub_title = u'The 6WIND Virtual Accelerator Plugin for Fuel'
 epub_author = u'6WIND SA'
 epub_publisher = u'6WIND SA'
 epub_copyright = u'2016, 6WIND SA'

@@ -9,7 +9,7 @@ class virtual_accelerator {
   # General configuration
   $settings = hiera('6wind-virtual-accelerator', {})
 
-  # 6WIND virtual accelerator settings
+  # 6WIND Virtual Accelerator settings
   $advanced_params = $settings['advanced_params_enabled']
   $fp_mem = $settings['fp_mem']
   $cores_per_port = $settings['cores_per_port']
