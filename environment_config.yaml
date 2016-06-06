@@ -89,7 +89,7 @@ attributes:
     type: "hidden"
     value: true
     label: "Important notes:"
-    description: "Before changing default settings for virtual Accelerator, please have a look at
+    description: "Before changing default settings for Virtual Accelerator, please have a look at
                   6WIND's Virtual Accelerator online documentation for applicable values:\n
                     Product description:  http://www.6wind.com/products/6wind-virtual-accelerator/\n
                     User Guide:           http://www.6wind.com/products/6wind-virtual-accelerator/\n"

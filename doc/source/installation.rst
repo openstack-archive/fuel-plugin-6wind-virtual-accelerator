@@ -6,16 +6,16 @@ Prerequisites
 
 This guide assumes that you have `installed Fuel <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html>`_
 and all the nodes of your future environment are discovered and functional.
-Note, the 6WIND virtual accelerator Fuel plugin will download virtual
+Note, the 6WIND Virtual Accelerator Fuel plugin will download virtual
 accelerator packages from a remote repository. Make sure that nodes can correctly
 reach Internet.
 
-To correctly deploy the 6WIND virtual accelerator Fuel plugin you will need
+To correctly deploy the 6WIND Virtual Accelerator Fuel plugin you will need
 a credentials package (in base64 format).
 
 If you have already purchased 6WIND software you should have this package,
 otherwise contact 6WIND support team.
-On the other hand, if you just want to evaluate the 6WIND virtual accelerator
+On the other hand, if you just want to evaluate the 6WIND Virtual Accelerator
 you still need to `contact 6WIND <http://www.6wind.com/company-profile/contact-us/>`_.
 
 Requirements
@@ -27,7 +27,7 @@ Verify this typing the following command:
 
         fuel --version
 
-In order to correctly install the 6WIND virtual accelerator plugin on Fuel
+In order to correctly install the 6WIND Virtual Accelerator plugin on Fuel
 compute(s) the following requirements are mandatory:
 
 #.   Use KVM as hypervisor virtualization driver
@@ -41,7 +41,7 @@ instead of the default Fuel setup that puts this interface on the same used
 for pxe and management.
 Support for VxLAN and for bridged VLAN will be available in future releases.
 
-The 6WIND virtual accelerator needs qemu and libvirt supporting vhostuser and
+The 6WIND Virtual Accelerator needs qemu and libvirt supporting vhostuser and
 multiqueue features to correclty run its fast packet processing stack.
 In particular on the compute nodes the following packages are needed:
 
@@ -54,10 +54,10 @@ For this reason the default behavior for the plugin is to retrieve the
 stages of deployment.
 
 
-Installing 6WIND virtual accelerator Plugin
+Installing 6WIND Virtual Accelerator Plugin
 -------------------------------------------
 
-#.  Download 6WIND virtual accelerator plugin from the `Fuel Plugins Catalog <https://software.mirantis.com/download-mirantis-openstack-fuel-plug-ins/>`_.
+#.  Download 6WIND Virtual Accelerator plugin from the `Fuel Plugins Catalog <https://software.mirantis.com/download-mirantis-openstack-fuel-plug-ins/>`_.
 #.  Copy the downloaded rpm to the Fuel Master node:
     ::
 
@@ -78,7 +78,7 @@ Installing 6WIND virtual accelerator Plugin
     ..
 
 
-Configuring 6WIND virtual accelerator Plugin
+Configuring 6WIND Virtual Accelerator Plugin
 --------------------------------------------
 
 #.  First you have to `create environment <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html#create-a-new-openstack-environment>`_ in Fuel Web UI.
@@ -92,7 +92,7 @@ Configuring 6WIND virtual accelerator Plugin
        :width: 80%
 
 #.  Please select Neutron networking.
-    The 6WIND virtual accelerator supports only VLAN segmentation.
+    The 6WIND Virtual Accelerator supports only VLAN segmentation.
 
     .. image:: images/network.png
        :width: 80%
