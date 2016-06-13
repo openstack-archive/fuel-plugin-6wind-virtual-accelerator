@@ -5,13 +5,14 @@ class virtual_accelerator::config inherits virtual_accelerator {
 
   $advanced_params = $virtual_accelerator::advanced_params
 
-  file { '/etc/apparmor.d/disable/usr.sbin.libvirtd':
-    ensure => 'link',
-    target => '/etc/apparmor.d/usr.sbin.libvirtd',
+  exec {'rename_apparmor_libvirt':
+    command => "mv /etc/apparmor.d/abstractions/libvirt-qemu /etc/apparmor.d/abstractions/libvirt-qemu-default",
   } ->
-  exec {'disable_apparmor':
-    command => "apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd",
-    returns => [0, 254],
+  file { '/etc/apparmor.d/abstractions/libvirt-qemu':
+    owner   => 'root',
+    group   => 'root',
+    mode    => 0644,
+    source => 'puppet:///modules/virtual_accelerator/apparmor-libvirt',
   } ->
   file { '/etc/init/cpu-cgroup.conf':
     owner   => 'root',

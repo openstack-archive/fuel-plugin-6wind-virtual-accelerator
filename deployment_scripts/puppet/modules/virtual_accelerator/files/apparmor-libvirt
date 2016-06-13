@@ -1,0 +1,3 @@
+  #include <abstractions/libvirt-qemu-default>
+
+  owner "/mnt/huge/libvirt/qemu/**" rw,
