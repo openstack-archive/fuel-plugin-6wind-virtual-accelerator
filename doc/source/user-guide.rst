@@ -100,7 +100,7 @@ its Openstack extensions have been correctly installed.
 
     ::
 
-        aptitude show 6wind-openstack-extension | grep State
+        aptitude show 6wind-openstack-extensions| grep State
 
 
 If this check is successful, verify that that ALL the following services are
