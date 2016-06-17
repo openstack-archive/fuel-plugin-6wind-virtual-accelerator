@@ -33,13 +33,8 @@ compute(s) the following requirements are mandatory:
 #.   Use KVM as hypervisor virtualization driver
 #.   Deploy on compute node(s) with **at least 4GB of RAM and 2 cpus**
 #.   Internet connectivity on Master node (since the plugin will download software from 6WIND remote repositories)
-#.   A dedicated link for Neutron networking tunnels between Compute and Network
 
-This version of plugin supports only VLAN as networking tunneling option.
-It is mandatory to use a dedicated physical network interface for your tunnel
-instead of the default Fuel setup that puts this interface on the same used
-for pxe and management.
-Support for VxLAN and for bridged VLAN will be available in future releases.
+This version of plugin supports VLAN and VxLAN as networking tunneling option.
 
 The 6WIND Virtual Accelerator needs qemu and libvirt supporting vhostuser and
 multiqueue features to correclty run its fast packet processing stack.
@@ -61,19 +56,19 @@ Installing 6WIND Virtual Accelerator Plugin
 #.  Copy the downloaded rpm to the Fuel Master node:
     ::
 
-        scp 6wind-virtual-accelerator-1.0-1.0.3-1.noarch.rpm  <Fuel Master node ip>:/tmp/
+        scp 6wind-virtual-accelerator-1.0-1.0.4-1.noarch.rpm  <Fuel Master node ip>:/tmp/
 
 #.  Log into the Fuel Master node and install the plugin
     ::
 
         ssh <the Fuel Master node ip>
-        fuel plugins --install /tmp/6wind-virtual-accelerator-1.0-1.0.3-1.noarch.rpm
+        fuel plugins --install /tmp/6wind-virtual-accelerator-1.0-1.0.4-1.noarch.rpm
 
 #.  Now verify that the plugin is correctly installed
     ::
 
         fuel plugins
-        3  | 6wind-virtual-accelerator | 1.0.3   | 3.0.0
+        3  | 6wind-virtual-accelerator | 1.0.4   | 3.0.0
 
     ..
 
@@ -92,7 +87,7 @@ Configuring 6WIND Virtual Accelerator Plugin
        :width: 80%
 
 #.  Please select Neutron networking.
-    The 6WIND Virtual Accelerator supports only VLAN segmentation.
+    The 6WIND Virtual Accelerator supports VLAN and VxLAN segmentation.
 
     .. image:: images/network.png
        :width: 80%
@@ -121,21 +116,6 @@ Configuring 6WIND Virtual Accelerator Plugin
     .. image:: images/node-roles.png
        :width: 100%
 
-#.  Configure nodes to use a dedicated link for Neutron networking.
-
-    *   Select the Compute and 6WIND Virtual Accelerator node and configre its
-        interfaces.
-
-    .. image:: images/configure.png
-       :width: 100%
-
-    *   Drag the Private interface to the dedicated NIC used to connect to Controller.
-
-    .. image:: images/interface.png
-       :width: 100%
-
-    *   Perform these two steps for the Controller node too and choose the NIC
-        accordingly.
 
 #.  Verify nodes network connectivity (in the Fuel Web UI Network tab)
 
