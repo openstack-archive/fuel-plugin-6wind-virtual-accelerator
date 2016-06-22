@@ -7,37 +7,24 @@ attributes:
     weight: 20
     type: "file"
 
+  va_license_file:
+    value: ''
+    label: "License File"
+    description: "(optional) license file used to activate VA"
+    weight: 30
+    type: "file"
+
   advanced_params_enabled:
     value: false
     label: "Advanced Parameters"
     description: "Enables configuration of advanced parameters"
-    weight: 30
+    weight: 35
     type: "checkbox"
 
-  va_license_file:
-    value: ''
-    label: "LICENSE FILE"
-    description: "license file used to activate VA"
-    weight: 35
-    type: "file"
-    restrictions:
-      - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
-        action: hide
-
   fp_mem:
-    value: '1024'
+    value: 'auto'
     label: 'FP_MEMORY'
     description: 'defines how much memory is used by VA'
-    weight: 40
-    type: "text"
-    restrictions:
-      - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
-        action: hide
-
-  cores_per_port:
-    value: '1'
-    label: 'CORE_PER_PORT'
-    description: 'defines the amount of cores polling each port'
     weight: 40
     type: "text"
     restrictions:

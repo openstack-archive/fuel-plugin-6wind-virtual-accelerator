@@ -106,9 +106,10 @@ Configuring 6WIND Virtual Accelerator Plugin
 
     *   Provide base64 credentials package you received from 6WIND support team
 
-    *   Refer to next chapter for detailed field description and configuration.
-        In particular if you have a **license file** you should upload it at this time
-        in the Advanced Paramaters menu.
+    *   Provide the license file to be used for 6WIND Virtual Accelerator
+        activation
+
+    *   Refer to next chapter for the description of Advanced Paramaters fields.
 
 
 #.  Add nodes and assign them the following roles:
@@ -116,7 +117,7 @@ Configuring 6WIND Virtual Accelerator Plugin
     *   At least 1 Controller
 
     *   At least one node with both Compute and 6WIND Virtual Accelerator roles.
-        Make sure that the chosen node has **at least 2 cpus and 4 GB of RAM**
+        Make sure that the chosen node has **at least 2 cpus and 6 GB of RAM**
 
     .. image:: images/node-roles.png
        :width: 100%
