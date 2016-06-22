@@ -12,7 +12,6 @@ class virtual_accelerator {
   # 6WIND Virtual Accelerator settings
   $advanced_params = $settings['advanced_params_enabled']
   $fp_mem = $settings['fp_mem']
-  $cores_per_port = $settings['cores_per_port']
   $vm_mem = $settings['vm_mem']
   $va_conf_file = ''
   $disable_ipset = $settings['disable_ipset']

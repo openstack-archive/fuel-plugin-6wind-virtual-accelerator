@@ -23,16 +23,7 @@ class virtual_accelerator::config inherits virtual_accelerator {
     ensure => 'running',
   }
 
-  $fp_mem = $virtual_accelerator::fp_mem
   $fp_conf_file = "/usr/local/etc/fast-path.env"
-
-  exec { 'copy_template':
-    command => "cp /usr/local/etc/fast-path.env.tmpl ${fp_conf_file}",
-  } ->
-  exec { 'set_fp_mem':
-    command => "config_va.sh FP_MEMORY ${fp_mem}",
-    path    => '/usr/local/bin/',
-  }
 
   if $advanced_params == true {
     $custom_conf_file = $virtual_accelerator::va_conf_file
@@ -48,15 +39,18 @@ class virtual_accelerator::config inherits virtual_accelerator {
       }
     }
     else {
-      $cores_per_port = $virtual_accelerator::cores_per_port
-      exec { 'set_core':
-        command => "config_va.sh CORE_PER_PORT ${cores_per_port}",
-        path    => '/usr/local/bin/',
-      }
-
       $vm_mem = $virtual_accelerator::vm_mem
+      $fp_mem = $virtual_accelerator::fp_mem
+
+      exec { 'copy_template':
+        command => "cp /usr/local/etc/fast-path.env.tmpl ${fp_conf_file}",
+      } ->
       exec { 'set_vm_mem':
         command => "config_va.sh VM_MEMORY ${vm_mem}",
+        path    => '/usr/local/bin/',
+      } ->
+      exec { 'set_fp_mem':
+        command => "config_va.sh FP_MEMORY ${fp_mem}",
         path    => '/usr/local/bin/',
       }
     }
