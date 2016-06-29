@@ -6,7 +6,7 @@ name: 6wind-virtual-accelerator
 # Human-readable name for your plugin
 title: 6WIND Virtual Accelerator Fuel plugin
 # Plugin version
-version: '1.0.4'
+version: '2.0.0'
 # Description
 description: Enable use of 6WIND Virtual Accelerator plugin for Neutron
 # Required Fuel version
@@ -24,15 +24,11 @@ groups: [network]
 # The plugin is compatible with releases in the list
 releases:
   - os: ubuntu
-    version: 2015.1.0-7.0
-    mode: ['ha', 'multinode']
-    deployment_scripts_path: deployment_scripts/
-    repository_path: repositories/ubuntu
-  - os: ubuntu
-    version: 2015.1.0-8.0
-    mode: ['ha', 'multinode']
+    version: liberty-8.0
+    mode: ['ha']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu
 
 # Version of plugin package
 package_version: '3.0.0'
+is_hotpluggable: false
