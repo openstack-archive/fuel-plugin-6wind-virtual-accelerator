@@ -5,14 +5,6 @@ class virtual_accelerator::config inherits virtual_accelerator {
 
   $advanced_params = $virtual_accelerator::advanced_params
 
-  file { '/etc/apparmor.d/disable/usr.sbin.libvirtd':
-    ensure => 'link',
-    target => '/etc/apparmor.d/usr.sbin.libvirtd',
-  } ->
-  exec {'disable_apparmor':
-    command => "apparmor_parser -R /etc/apparmor.d/usr.sbin.libvirtd",
-    returns => [0, 254],
-  } ->
   file { '/etc/init/cpu-cgroup.conf':
     owner   => 'root',
     group   => 'root',
@@ -24,6 +16,15 @@ class virtual_accelerator::config inherits virtual_accelerator {
   }
 
   $fp_conf_file = "/usr/local/etc/fast-path.env"
+  $hugepages_dir = "/dev/hugepages"
+
+  exec { 'copy_template':
+    command => "cp /usr/local/etc/fast-path.env.tmpl ${fp_conf_file}",
+  } ->
+  exec { 'set_hugepages_dir':
+    command => "config_va.sh HUGEPAGES_DIR ${hugepages_dir}",
+    path    => '/usr/local/bin/',
+  }
 
   if $advanced_params == true {
     $custom_conf_file = $virtual_accelerator::va_conf_file
@@ -42,9 +43,6 @@ class virtual_accelerator::config inherits virtual_accelerator {
       $vm_mem = $virtual_accelerator::vm_mem
       $fp_mem = $virtual_accelerator::fp_mem
 
-      exec { 'copy_template':
-        command => "cp /usr/local/etc/fast-path.env.tmpl ${fp_conf_file}",
-      } ->
       exec { 'set_vm_mem':
         command => "config_va.sh VM_MEMORY ${vm_mem}",
         path    => '/usr/local/bin/',
