@@ -4,7 +4,7 @@ Installation Guide
 Prerequisites
 -------------
 
-This guide assumes that you have `installed Fuel <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html>`_
+This guide assumes that you have `installed Fuel <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-install-guide.html#introduction-to-fuel-8-0-installation-guide>`_
 and all the nodes of your future environment are discovered and functional.
 Note, the 6WIND Virtual Accelerator Fuel plugin will download virtual
 accelerator packages from a remote repository. Make sure that nodes can correctly
@@ -21,7 +21,7 @@ you still need to `contact 6WIND <http://www.6wind.com/company-profile/contact-u
 Requirements
 ------------
 
-This plugin is intended to be installed on nodes running Fuel 7.0 (version 7.0.0)
+This plugin is intended to be installed on nodes running Fuel 8.0 (version 8.0.0)
 Verify this typing the following command:
     ::
 
@@ -56,19 +56,19 @@ Installing 6WIND Virtual Accelerator Plugin
 #.  Copy the downloaded rpm to the Fuel Master node:
     ::
 
-        scp 6wind-virtual-accelerator-1.0-1.0.4-1.noarch.rpm  <Fuel Master node ip>:/tmp/
+        scp 6wind-virtual-accelerator-2.0-2.0.0-1.noarch.rpm  <Fuel Master node ip>:/tmp/
 
 #.  Log into the Fuel Master node and install the plugin
     ::
 
         ssh <the Fuel Master node ip>
-        fuel plugins --install /tmp/6wind-virtual-accelerator-1.0-1.0.4-1.noarch.rpm
+        fuel plugins --install /tmp/6wind-virtual-accelerator-2.0-2.0.0-1.noarch.rpm
 
 #.  Now verify that the plugin is correctly installed
     ::
 
         fuel plugins
-        3  | 6wind-virtual-accelerator | 1.0.4   | 3.0.0
+        3  | 6wind-virtual-accelerator | 2.0.0   | 3.0.0
 
     ..
 
@@ -76,12 +76,12 @@ Installing 6WIND Virtual Accelerator Plugin
 Configuring 6WIND Virtual Accelerator Plugin
 --------------------------------------------
 
-#.  First you have to `create environment <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html#create-a-new-openstack-environment>`_ in Fuel Web UI.
+#.  First you have to `create environment <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-user-guide.html#create-a-new-openstack-environment>`_ in Fuel Web UI.
 
     .. image:: images/name_release.png
        :width: 70%
 
-#.  Please select KVM hypervisor type for your environment.
+#.  Please select QEMU-KVM hypervisor type for your environment.
 
     .. image:: images/hypervisor.png
        :width: 80%
@@ -92,7 +92,12 @@ Configuring 6WIND Virtual Accelerator Plugin
     .. image:: images/network.png
        :width: 80%
 
-#.  Activate the plugin in the Fuel Web UI Settings tab
+#.  Select KVM as compute hypervisor type in the Fuel Settings tab
+
+    .. image:: images/kvm.png
+       :width: 90%
+
+#.  Activate the plugin in the Fuel Settings tab
 
     .. image:: images/activation.png
        :width: 90%
@@ -123,8 +128,7 @@ Configuring 6WIND Virtual Accelerator Plugin
     .. image:: images/connectivity.png
        :width: 100%
 
-#.  Press **Deploy changes** to `deploy the environment <https://docs.mirantis.com/openstack/fuel/fuel-7.0/user-guide.html#
-    deploy-changes>`_.
+#.  Press **Deploy changes** to `deploy the environment <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-user-guide.html#deploy-an-openstack-environment>`_.
 
 
 

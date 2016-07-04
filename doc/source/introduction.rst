@@ -109,7 +109,7 @@ brctl, ovs-ofctl, ovs-vsctl, etc.
 
 |va| is also validated with the Mirantis Openstack cloud operating system:
 
-- Supports Mirantis Openstack 7.0
+- Supports Mirantis Openstack 8.0
 
 Supported platforms
 -------------------
