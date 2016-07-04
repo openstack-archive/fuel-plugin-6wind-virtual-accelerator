@@ -1,17 +1,8 @@
-New features in plugin version 1.0.4
+New features in plugin version 2.0.0
 ====================================
 
-*   Added support for 6WIND Virtual Accelerator 1.3.2
+*   Support for Fuel 8.0
 
-*   Support for VxLAN tunneling
-
-*   Removed apparmor libvirt profile configuration for hugepages
-
-*   VLAN interface for Private network no more needs to use a dedicated NIC
-
-*   Removed a plugin advanced parameter (CORE_PER_PORT) now deprecated
-
-*   Changed default value for FP_MEMORY advanced parameter.
-    It is now set to 'auto'.
-
-*   Documentation update to describe new features
+*   New option to enable Host CPU emulation in guests.
+    It is now possible to use the plugin to configure Openstack to
+    boot instances that need emulation of hypervisor CPU.
