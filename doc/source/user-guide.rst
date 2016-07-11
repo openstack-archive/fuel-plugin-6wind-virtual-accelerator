@@ -28,12 +28,28 @@ in the 6WIND Virtual Accelerator Fuel plugin section in the Web UI Settings tab.
 
 At this point some additional fields will show up and you will be able to edit
 with your desired values.
-Please contact 6WIND support team or refer to 6WIND Virtual Accelerator documentation
-for more information on the meaning of these fields.
+
+In particular you can modify the following:
+
+    *  `FP_MEMORY`
+
+       This parameter defines the amount of memory (in MB) you want to reserve
+       for Virtual Accelerator. Sample values are 1024, 512 or 'auto'.
+
+    *  `VM_MEMORY`
+
+       This parameter defines the total amount of memory (in MB) you want to
+       reserve for accelerated virtual machines.
+       Sample values are 2048, 4096, 'auto'.
+
+For all these parameters you can always set value to 'auto' (default value).
+In this case the plugin will compute the most suitable value according to
+your system resources.
 
 
-If you already have a Virtual Accelerator configuration file,
-you can upload it to the nodes having the 6WIND Virtual Accelerator role enabled.
+In some cases you may already have a Virtual Accelerator configuration file.
+You can upload it to the nodes having the 6WIND Virtual Accelerator role enabled
+using the dedicated `External configuration file for VA` field.
 Note, this file will replace the default Virtual Accelerator configuration file
 and overload all the defined configuration paramaters.
 
@@ -63,6 +79,25 @@ To do this simply unselect the **Use updated external packages** checkbox.
 Note, default libvirt and qemu packages on MOS 7.0 do not have all the features
 required for proper 6WIND Virtual Accelerator integration. Thus we strongly
 advise to keep the **Use updated external packages** enabled.
+
+Configure hugepages support for virtual machines
+------------------------------------------------
+
+In order to benefit from 6WIND Virtual Accelerator high performance networking,
+hugepages support needs to be enabled in Nova flavors.
+The plugin does not perform this configuration since it should be still
+possible to spawn virtual machines that don't need network acceleration.
+
+For this reason end-users have to explicitly configure the Nova flavors they
+want to use when launching virtual machines for fast networking.
+In order to that it is enough to enable hugepages support in the desired Nova
+flavor.
+
+On the controller node type the following command to configure a given flavor:
+
+    ::
+
+        nova flavor-key flavor set hw:mem_page_size=large
 
 Sanity checks after deployment
 ------------------------------
