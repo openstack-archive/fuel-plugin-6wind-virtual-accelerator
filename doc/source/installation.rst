@@ -31,7 +31,7 @@ In order to correctly install the 6WIND Virtual Accelerator plugin on Fuel
 compute(s) the following requirements are mandatory:
 
 #.   Use KVM as hypervisor virtualization driver
-#.   Deploy on compute node(s) with **at least 4GB of RAM and 2 cpus**
+#.   Deploy on compute node(s) with **at least 4GB of RAM and 2 CPU cores**
 #.   Internet connectivity on Master node (since the plugin will download software from 6WIND remote repositories)
 
 This version of plugin supports VLAN and VxLAN as networking tunneling option.
@@ -112,7 +112,7 @@ Configuring 6WIND Virtual Accelerator Plugin
     *   At least 1 Controller
 
     *   At least one node with both Compute and 6WIND Virtual Accelerator roles.
-        Make sure that the chosen node has **at least 2 cpus and 6 GB of RAM**
+        Make sure that the chosen node has **at least 2 CPU cores and 6 GB of RAM**
 
     .. image:: images/node-roles.png
        :width: 100%

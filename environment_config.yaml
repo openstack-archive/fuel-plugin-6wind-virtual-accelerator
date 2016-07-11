@@ -24,7 +24,7 @@ attributes:
   fp_mem:
     value: 'auto'
     label: 'FP_MEMORY'
-    description: 'defines how much memory is used by VA'
+    description: 'defines the amount of memory used by Virtual Accelerator (in MB)'
     weight: 40
     type: "text"
     restrictions:
@@ -34,7 +34,7 @@ attributes:
   vm_mem:
     value: 'auto'
     label: 'VM_MEMORY'
-    description: 'defines the memory available for vms'
+    description: 'defines the amount of memory available for accelerated vms (in MB)'
     weight: 40
     type: "text"
     restrictions:
