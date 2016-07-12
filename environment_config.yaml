@@ -61,18 +61,28 @@ attributes:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
         action: hide
 
-  disable_ipset:
-    value: true
-    label: 'Disable neutron ipset'
-    description: 'Set/unset support for ipset when using security groups'
+  enable_host_cpu:
+    value: false
+    label: 'Host cpu emulation for guests'
+    description: 'Set/unset host cpu emulation for guests'
     weight: 75
     type: "checkbox"
     restrictions:
       - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
         action: hide
 
-  infos:
+  disable_ipset:
+    value: true
+    label: 'Disable neutron ipset'
+    description: 'Set/unset support for ipset when using security groups'
     weight: 80
+    type: "checkbox"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.advanced_params_enabled.value == false"
+        action: hide
+
+  infos:
+    weight: 90
     type: "hidden"
     value: true
     label: "Important notes:"

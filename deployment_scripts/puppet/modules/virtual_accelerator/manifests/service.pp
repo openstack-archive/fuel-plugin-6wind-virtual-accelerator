@@ -4,6 +4,12 @@
 class virtual_accelerator::service inherits virtual_accelerator {
 
   $NOVA_CONF_FILE = "/etc/nova/nova.conf"
+  $enable_host_cpu = $virtual_accelerator::enable_host_cpu
+
+  if $enable_host_cpu == true {
+     command => "crudini --set ${NOVA_CONF_FILE} libvirt cpu_mode host-model",
+     notify => Exec['vcpu_pin'],
+  }
 
   exec { 'vcpu_pin':
       command => "crudini --set ${NOVA_CONF_FILE} DEFAULT vcpu_pin_set $(python /usr/local/bin/get_vcpu_pin_set.py)",
