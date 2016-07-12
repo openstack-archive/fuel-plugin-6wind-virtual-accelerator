@@ -80,6 +80,21 @@ Note, default libvirt and qemu packages on MOS 7.0 do not have all the features
 required for proper 6WIND Virtual Accelerator integration. Thus we strongly
 advise to keep the **Use updated external packages** enabled.
 
+Use cpu host emulation for guests
+---------------------------------
+
+Openstack makes possible to launch instances that emulate compute physical
+(or virtual) CPU. In order to that libvirt should be configured accordingly
+via the Nova configuration file.
+
+This plugin offers the possibility to enable/disable such configuration in Nova
+with a specific option (`Host cpu emulation for guests`) in the advanced
+parameters.
+
+By default, this option is active but it is still possible to keep the
+standard Nova configuration that does not use host cpu emulation for guests.
+To do that simply unselect the described checkobox.
+
 Configure hugepages support for virtual machines
 ------------------------------------------------
 
