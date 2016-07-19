@@ -11,7 +11,7 @@
   type: puppet
   groups: [compute]
   required_for: [fuel_pkgs]
-  requires: [deploy_start]
+  requires: [setup_repositories]
   parameters:
     puppet_manifest: puppet/manifests/external_repo.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
