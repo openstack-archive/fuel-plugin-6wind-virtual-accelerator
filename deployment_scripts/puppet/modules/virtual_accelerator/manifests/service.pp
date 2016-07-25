@@ -5,10 +5,20 @@ class virtual_accelerator::service inherits virtual_accelerator {
 
   $NOVA_CONF_FILE = "/etc/nova/nova.conf"
   $enable_host_cpu = $virtual_accelerator::enable_host_cpu
+  $use_builtin_dpdk = $virtual_accelerator::use_builtin_dpdk
 
   if $enable_host_cpu == true {
     exec { 'cpu_host':
         command => "crudini --set ${NOVA_CONF_FILE} libvirt cpu_mode host-passthrough",
+        notify => Exec['vcpu_pin'],
+    }
+  }
+
+  if $use_builtin_dpdk == true {
+    $hugepages_file = "/sys/kernel/mm/hugepages/hugepages-2048kB"
+
+    exec { 'reset_hugepages':
+        command => "echo 0 > ${hugepages_file}/nr_hugepages",
         notify => Exec['vcpu_pin'],
     }
   }
@@ -25,10 +35,10 @@ class virtual_accelerator::service inherits virtual_accelerator {
 
   service { 'openvswitch-switch':
       ensure => 'running',
-      notify => Service['neutron-plugin-openvswitch-agent'],
+      notify => Service['neutron-openvswitch-agent'],
   }
 
-  service { 'neutron-plugin-openvswitch-agent':
+  service { 'neutron-openvswitch-agent':
       ensure => 'running',
       notify => Service['libvirt-bin'],
   }

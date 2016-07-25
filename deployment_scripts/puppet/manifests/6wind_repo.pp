@@ -5,7 +5,7 @@ notice('MODULAR: virtual_accelerator/6wind_repo.pp')
 
 $settings = hiera('6wind-virtual-accelerator', {})
 
-$va_version = "1.3"
+$va_version = "1.4"
 
 $cred_package_content = $settings['credentials_package'][content]
 $cred_package_name = $settings['credentials_package'][name]

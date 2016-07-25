@@ -6,6 +6,9 @@ class virtual_accelerator::install inherits virtual_accelerator {
   exec { 'update_repos':
       command => '/usr/bin/apt-get -y update',
   } ->
+  package { 'dkms':
+    ensure          => 'absent',
+  } ->
   package { 'virtual-accelerator':
     ensure          => 'installed',
     install_options => ['--allow-unauthenticated'],
