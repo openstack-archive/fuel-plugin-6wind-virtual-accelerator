@@ -6,7 +6,10 @@ notice('MODULAR: virtual_accelerator/external_repo.pp')
 $settings = hiera('6wind-virtual-accelerator', {})
 $ext_pack = $settings['ext_pack']
 
-if $ext_pack == true {
+$dpdk_options = hiera('dpdk', {})
+$use_builtin_dpdk = pick($dpdk_options['enabled'], false)
+
+if $ext_pack == true and $use_builtin_dpdk == false {
 
     exec { 'add_6wind_ppa':
       command => '/usr/bin/add-apt-repository -y ppa:6wind/virt-mq-current',

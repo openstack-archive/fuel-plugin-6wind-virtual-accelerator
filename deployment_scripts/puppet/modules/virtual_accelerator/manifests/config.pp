@@ -24,6 +24,10 @@ class virtual_accelerator::config inherits virtual_accelerator {
   exec { 'set_hugepages_dir':
     command => "config_va.sh HUGEPAGES_DIR ${hugepages_dir}",
     path    => '/usr/local/bin/',
+  } ->
+  exec { 'config_whitelist':
+    command => "config_va.sh EAL_OPTIONS",
+    path    => '/usr/local/bin/',
   }
 
   if $advanced_params == true {

@@ -27,4 +27,7 @@ class virtual_accelerator {
     $va_license_file = $settings['va_license_file'][content]
   }
 
+  # Retrieve dpdk settings
+  $dpdk_options = hiera('dpdk', {})
+  $use_builtin_dpdk = pick($dpdk_options['enabled'], false)
 }
