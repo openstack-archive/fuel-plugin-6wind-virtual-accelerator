@@ -12,4 +12,14 @@ function set_fp_opt() {
 	fi
 }
 
-set_fp_opt "$1" "$2" $fpconf
+if [ "$1" == "EAL_OPTIONS" ]; then
+	if [ -f "/usr/local/etc/dpdk_interfaces_file" ]; then
+		for pci_bus in $(grep -v '^[ \t]*#' /usr/local/etc/dpdk_interfaces_file | awk '{print $2'}); do
+			whitelist=$whitelist' -w'$pci_bus
+		done
+		whitelist=$whitelist' -dlibrte_pmd_vhost.so'
+		set_fp_opt "$1" "$whitelist" $fpconf
+	fi
+else
+	set_fp_opt "$1" "$2" $fpconf
+fi

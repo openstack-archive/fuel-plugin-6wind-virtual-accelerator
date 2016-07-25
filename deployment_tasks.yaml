@@ -20,10 +20,20 @@
 - id: 6wind-virtual-accelerator-setup-repo
   type: puppet
   groups: [6wind-virtual-accelerator]
-  required_for: [6wind-virtual-accelerator-install]
+  required_for: [6wind-virtual-accelerator-prepare]
   requires: [deploy_start]
   parameters:
     puppet_manifest: puppet/manifests/6wind_repo.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
+- id: 6wind-virtual-accelerator-prepare
+  type: puppet
+  groups: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator-install]
+  requires: [netconfig, 6wind-virtual-accelerator-setup-repo]
+  parameters:
+    puppet_manifest: puppet/manifests/prepare_va.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
 
@@ -31,7 +41,7 @@
   type: puppet
   groups: [6wind-virtual-accelerator]
   required_for: [6wind-virtual-accelerator-configure]
-  requires: [6wind-virtual-accelerator-setup-repo]
+  requires: [6wind-virtual-accelerator-prepare]
   parameters:
     puppet_manifest: puppet/manifests/install_va.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
@@ -54,15 +64,5 @@
   requires: [enable_nova_compute_service]
   parameters:
     puppet_manifest: puppet/manifests/start_va.pp
-    puppet_modules: puppet/modules:/etc/puppet/modules
-    timeout: 3600
-
-- id: 6wind-virtual-accelerator-neutron-conf
-  type: puppet
-  role: ['primary-controller', '6wind-virtual-accelerator']
-  required_for: [post_deployment_end]
-  requires: [post_deployment_start]
-  parameters:
-    puppet_manifest: puppet/manifests/neutron_conf.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
