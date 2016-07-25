@@ -14,7 +14,6 @@ class virtual_accelerator {
   $fp_mem = $settings['fp_mem']
   $vm_mem = $settings['vm_mem']
   $va_conf_file = ''
-  $disable_ipset = $settings['disable_ipset']
   $enable_host_cpu = $settings['enable_host_cpu']
 
   if $settings['va_conf_file'] {
