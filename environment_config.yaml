@@ -14,6 +14,13 @@ attributes:
     weight: 30
     type: "file"
 
+  va_version:
+    value: 'stable'
+    label: 'Product branch'
+    description: 'defines the Virtual Accelerator version to be installed (in 1.x format)'
+    weight: 32
+    type: "text"
+
   advanced_params_enabled:
     value: false
     label: "Advanced Parameters"
@@ -72,7 +79,7 @@ attributes:
         action: hide
 
   disable_ipset:
-    value: true
+    value: false
     label: 'Disable neutron ipset'
     description: 'Set/unset support for ipset when using security groups'
     weight: 80
