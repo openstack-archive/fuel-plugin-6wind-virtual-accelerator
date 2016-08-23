@@ -5,13 +5,19 @@ notice('MODULAR: virtual_accelerator/6wind_repo.pp')
 
 $settings = hiera('6wind-virtual-accelerator', {})
 
-$va_version = "1.3"
+$va_version = $settings['va_version']
 
 $cred_package_content = $settings['credentials_package'][content]
 $cred_package_name = $settings['credentials_package'][name]
 
 if $cred_package_name !~ /.+[.]deb[.]b64?/ {
   fail('The given credentials package has wrong format')
+}
+
+if $va_version !~ /1[.](\d+)/ {
+  if $va_version != 'stable' {
+    $va_version = 'stable'
+  }
 }
 
 file {"/tmp/${cred_package_name}":
