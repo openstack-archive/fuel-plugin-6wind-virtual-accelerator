@@ -109,6 +109,11 @@ Configuring 6WIND Virtual Accelerator Plugin
     *   Provide the license file to be used for 6WIND Virtual Accelerator
         activation
 
+    *   Specify the 6WIND Virtual Accelerator version you want to install.
+        You can keep the 'stable' default value if you want the latest
+        version, otherwise specify an explicit value (eg. 1.3).
+        Remember to use **at least version 1.3** for Fuel 8.
+
     *   Refer to next chapter for the description of Advanced Paramaters fields.
 
 

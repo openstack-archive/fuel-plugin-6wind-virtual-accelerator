@@ -16,11 +16,14 @@ class virtual_accelerator {
   $va_conf_file = ''
   $disable_ipset = $settings['disable_ipset']
   $enable_host_cpu = $settings['enable_host_cpu']
+  $va_version = $settings['va_version']
 
   if $settings['va_conf_file'] {
     $va_conf_file = $settings['va_conf_file'][content]
   }
+
   if $settings['va_license_file'] {
     $va_license_file = $settings['va_license_file'][content]
   }
+
 }
