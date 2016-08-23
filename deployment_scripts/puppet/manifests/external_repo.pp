@@ -43,9 +43,13 @@ if $ext_pack == true {
     } ->
     package { 'qemu':
       ensure => 'latest',
-    }->
+    } ->
     package { 'qemu-system-x86':
       ensure => 'latest',
+    } ->
+    # workaround for bug in ceilometer
+    group { 'libvirt':
+      ensure => 'present',
     }
 
 }
