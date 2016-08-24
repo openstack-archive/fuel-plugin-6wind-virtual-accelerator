@@ -21,10 +21,10 @@ class virtual_accelerator::neutron_conf inherits virtual_accelerator {
 
       service { 'openvswitch-switch':
          ensure => 'running',
-         notify => Service['neutron-plugin-openvswitch-agent'],
+         notify => Service['neutron-openvswitch-agent'],
       }
 
-      service { 'neutron-plugin-openvswitch-agent':
+      service { 'neutron-openvswitch-agent':
          ensure => 'running',
       }
   }
