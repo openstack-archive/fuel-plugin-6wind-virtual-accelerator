@@ -25,11 +25,17 @@ class virtual_accelerator::service inherits virtual_accelerator {
 
   service { 'openvswitch-switch':
       ensure => 'running',
-      notify => Service['neutron-plugin-openvswitch-agent'],
+      notify => Service['neutron-openvswitch-agent'],
   }
 
-  service { 'neutron-plugin-openvswitch-agent':
+  service { 'neutron-openvswitch-agent':
       ensure => 'running',
+  }
+
+  # Let's make sure to use the default hugetlbfs mount point (that could have
+  # been modified by Fuel)
+  exec { 'disable_custom_hugepages_dir_qemu':
+      command => "sed -i 's~^hugetlbfs_mount =~#hugetlbfs_mount =~' /etc/libvirt/qemu.conf",
       notify => Service['libvirt-bin'],
   }
 
