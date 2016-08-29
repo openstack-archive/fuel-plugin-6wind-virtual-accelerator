@@ -17,6 +17,7 @@ class virtual_accelerator {
   $disable_ipset = $settings['disable_ipset']
   $enable_host_cpu = $settings['enable_host_cpu']
   $va_version = $settings['va_version']
+  $mellanox_support = $settings['mellanox_support']
 
   if $settings['va_conf_file'] {
     $va_conf_file = $settings['va_conf_file'][content]

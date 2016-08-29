@@ -114,7 +114,8 @@ Configuring 6WIND Virtual Accelerator Plugin
         version, otherwise specify an explicit value (eg. 1.3).
         Remember to use **at least version 1.3** for Fuel 8.
 
-    *   Refer to next chapter for the description of Advanced Paramaters fields.
+    *   Refer to next chapter for the description of Advanced Paramaters fields
+        and how to enable support for Mellanox NICs.
 
 
 #.  Add nodes and assign them the following roles:

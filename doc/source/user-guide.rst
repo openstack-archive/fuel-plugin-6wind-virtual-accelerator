@@ -15,6 +15,16 @@ credentials for Virtual Accelerator software download.
 The plugin will then install and run the Virtual Accelerator using its default
 configuration values.
 
+Enable 6WIND Virtual Accelerator addon for Mellanox
+---------------------------------------------------
+
+If your compute nodes use Mellanox NICs you should install the additional 6WIND
+Virtual Accelerator module. This task is possible using the
+**Enable Mellanox NICs support** checkbox in the Web UI.
+
+Thanks to this addon, the Virtual Accelerator will be able to automatically
+detect and configure these NICs to support the 6WIND network stack.
+
 Configuring 6WIND Virtual Accelerator parameters
 ------------------------------------------------
 
