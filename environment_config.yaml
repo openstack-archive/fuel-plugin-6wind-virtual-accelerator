@@ -28,6 +28,13 @@ attributes:
     weight: 35
     type: "checkbox"
 
+  mellanox_support:
+    value: false
+    label: "Enable Mellanox NICs support"
+    description: "Installs 6WIND Virtual Accelerator addon to support Mellanox NICs"
+    weight: 36
+    type: "checkbox"
+
   fp_mem:
     value: 'auto'
     label: 'FP_MEMORY'
