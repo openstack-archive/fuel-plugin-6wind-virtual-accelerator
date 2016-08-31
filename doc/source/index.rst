@@ -1,6 +1,6 @@
 .. _fuel-plugin-6wind-virtual-accelerator:
 
-Guide to the 6WIND Virtual Accelerator plugin for Fuel 8.0
+Guide to the 6WIND Virtual Accelerator plugin for Fuel 9.0
 ==========================================================
 
 .. toctree::
