@@ -86,7 +86,7 @@ provided by the Linux distribution.
 
 
 To do this simply unselect the **Use updated external packages** checkbox.
-Note, default libvirt and qemu packages on MOS 8.0 do not have all the features
+Note, default libvirt and qemu packages on MOS 9.0 do not have all the features
 required for proper 6WIND Virtual Accelerator integration. Thus we strongly
 advise to keep the **Use updated external packages** enabled.
 
@@ -166,7 +166,7 @@ correctly running (each of them should be **start/running**):
 
         service virtual-accelerator status
         service openvswitch-switch status
-        service neutron-plugin-openvswitch-agent status
+        service neutron-openvswitch-agent status
         service libvirtd status
         service nova-compute status
 
@@ -183,6 +183,6 @@ The current implementation of the 6WIND Virtual Accelerator plugin uses a creden
 package in base64 format for 6WIND software download.
 This behavior should be replaced using a regular credentials package instead of
 its base64 encoding.
-Unfortunately a bug in Fuel (affecting both 7.0 and 8.0) does not make
+Unfortunately a bug in Fuel (affecting 7.0, 8.0 and 9.0) does not make
 possible to correctly retrieve this package from the upload utility.
 `<https://bugs.launchpad.net/fuel/+bug/1545795>`_

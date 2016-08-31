@@ -9,10 +9,10 @@ Fuel Plugin for 6WIND Virtual Accelerator installation
 ======================================================
 
 The Fuel plugin for 6WIND Virtual Accelerator allows to install and integrate
-the Virtual Accelerator on desired nodes (compute) running Mirantis Openstack 8.0.
+the Virtual Accelerator on desired nodes (compute) running Mirantis Openstack 9.0.
 
 This plugin uses the Fuel pluggable architecture and it must be compatible with
-the version 8.0 of Mirantis OpenStack.
+the version 9.0 of Mirantis OpenStack.
 
 Problem description
 ===================
@@ -107,7 +107,7 @@ Work Items
 Dependencies
 ============
 
-* Fuel 8.0
+* Fuel 9.0
 * Hypervisor with KVM capability
 * Qemu with vhost-user and hugepage support
 

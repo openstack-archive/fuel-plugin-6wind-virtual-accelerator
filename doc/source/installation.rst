@@ -4,7 +4,7 @@ Installation Guide
 Prerequisites
 -------------
 
-This guide assumes that you have `installed Fuel <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-install-guide.html#introduction-to-fuel-8-0-installation-guide>`_
+This guide assumes that you have `installed Fuel <http://docs.openstack.org/developer/fuel-docs/userdocs/fuel-install-guide.html>`_
 and all the nodes of your future environment are discovered and functional.
 Note, the 6WIND Virtual Accelerator Fuel plugin will download virtual
 accelerator packages from a remote repository. Make sure that nodes can correctly
@@ -21,7 +21,7 @@ you still need to `contact 6WIND <http://www.6wind.com/company-profile/contact-u
 Requirements
 ------------
 
-This plugin is intended to be installed on nodes running Fuel 8.0 (version 8.0.0)
+This plugin is intended to be installed on nodes running Fuel 9.0 (version 9.0.0)
 Verify this typing the following command:
     ::
 
@@ -48,6 +48,17 @@ For this reason the default behavior for the plugin is to retrieve the
 6WIND libvirt and qemu packages and replace the Mirantis ones in the early
 stages of deployment.
 
+Fuel 9 provides an experimental support for builtin NFV features that enables
+some DPDK packages and OVS-DPDK. Because of some limitations of this
+experimental support, make sure to keep the default Fuel setup that does not
+enable NFV features. The 6WIND Virtual Accelerator Plugin will enable such
+features.
+
+Once these limitations will be fixed, the 6WIND Virtual Accelerator Plugin
+will still be available and able to leverage the Fuel 9 NFV capabilities.
+
+On the master node open the ``/etc/fuel/astute.yaml`` file and verify that
+the ``features_group`` section does not contain ``experimental``.
 
 Installing 6WIND Virtual Accelerator Plugin
 -------------------------------------------
@@ -56,19 +67,19 @@ Installing 6WIND Virtual Accelerator Plugin
 #.  Copy the downloaded rpm to the Fuel Master node:
     ::
 
-        scp 6wind-virtual-accelerator-2.0-2.0.1-1.noarch.rpm  <Fuel Master node ip>:/tmp/
+        scp 6wind-virtual-accelerator-3.0-3.0.0-1.noarch.rpm  <Fuel Master node ip>:/tmp/
 
 #.  Log into the Fuel Master node and install the plugin
     ::
 
         ssh <the Fuel Master node ip>
-        fuel plugins --install /tmp/6wind-virtual-accelerator-2.0-2.0.1-1.noarch.rpm
+        fuel plugins --install /tmp/6wind-virtual-accelerator-3.0-3.0.0-1.noarch.rpm
 
 #.  Now verify that the plugin is correctly installed
     ::
 
         fuel plugins
-        3  | 6wind-virtual-accelerator | 2.0.1   | 3.0.0
+        3  | 6wind-virtual-accelerator | 3.0.0   | 4.0.0
 
     ..
 
@@ -76,7 +87,7 @@ Installing 6WIND Virtual Accelerator Plugin
 Configuring 6WIND Virtual Accelerator Plugin
 --------------------------------------------
 
-#.  First you have to `create environment <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-user-guide.html#create-a-new-openstack-environment>`_ in Fuel Web UI.
+#.  First you have to `create environment <http://docs.openstack.org/developer/fuel-docs/userdocs/fuel-user-guide/create-environment.html>`_ in Fuel Web UI.
 
     .. image:: images/name_release.png
        :width: 70%
@@ -111,12 +122,11 @@ Configuring 6WIND Virtual Accelerator Plugin
 
     *   Specify the 6WIND Virtual Accelerator version you want to install.
         You can keep the 'stable' default value if you want the latest
-        version, otherwise specify an explicit value (eg. 1.3).
-        Remember to use **at least version 1.3** for Fuel 8.
+        version, otherwise specify an explicit value (eg. 1.4).
+        Remember to use **at least version 1.4** for Fuel 9.
 
     *   Refer to next chapter for the description of Advanced Paramaters fields
         and how to enable support for Mellanox NICs.
-
 
 #.  Add nodes and assign them the following roles:
 
@@ -128,13 +138,19 @@ Configuring 6WIND Virtual Accelerator Plugin
     .. image:: images/node-roles.png
        :width: 100%
 
+    *   When KVM is enabled it is possible to configure Hugepages and
+        CPU pinning on machines in the Node Attributes section (that will
+        show up when clicking on the small wheel image).
+        Plase leave these fields empty since the 6WIND Virtual Accelerator
+        will automatically compute the best possible configuration for you.
+
 
 #.  Verify nodes network connectivity (in the Fuel Web UI Network tab)
 
     .. image:: images/connectivity.png
        :width: 100%
 
-#.  Press **Deploy changes** to `deploy the environment <https://docs.mirantis.com/openstack/fuel/fuel-8.0/fuel-user-guide.html#deploy-an-openstack-environment>`_.
+#.  Press **Deploy changes** to `deploy the environment <http://docs.openstack.org/developer/fuel-docs/userdocs/fuel-user-guide/deploy-environment.html>`_.
 
 
 
