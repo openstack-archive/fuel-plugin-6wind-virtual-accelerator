@@ -11,7 +11,7 @@ while [ $(nova list | grep test_vm | grep BUILD | wc -l) -eq 1 ]; do
     sleep 1;
 done
 
-STATUS=$(nova show test_vm | grep status | awk '{print $4}')
+STATUS=$(nova list | grep test_vm | awk '{print $6}')
 
 if [[ ${STATUS} == "ACTIVE" ]]; then
     echo "Wait 2 minutes to make sure that vm cloud-init has finished"
