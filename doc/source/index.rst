@@ -8,7 +8,7 @@ Guide to the 6WIND Virtual Accelerator plugin for Fuel 9.0
     :numbered:
 
     introduction
-    new_features
+    release_notes
     limitations
     installation
     user-guide
