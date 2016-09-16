@@ -1,5 +1,11 @@
-New features in plugin version 2.0.1
-====================================
+Release Note
+============
+
+*   Support for Fuel 8.0
+
+*   New option to enable Host CPU emulation in guests.
+    It is now possible to use the plugin to configure Openstack to
+    boot instances that need emulation of hypervisor CPU.
 
 *   Added support for 6WIND Virtual Accelerator 1.4
 
