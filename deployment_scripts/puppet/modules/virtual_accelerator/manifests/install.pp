@@ -32,10 +32,6 @@ class virtual_accelerator::install inherits virtual_accelerator {
   } ->
   package { 'crudini':
     ensure => 'installed',
-  } ->
-  package { "6wind-openstack-extensions":
-    ensure   => 'installed',
-    install_options => ['--allow-unauthenticated'],
   }
 
 }

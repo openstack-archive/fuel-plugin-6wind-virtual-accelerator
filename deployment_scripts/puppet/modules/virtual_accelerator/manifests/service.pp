@@ -13,6 +13,11 @@ class virtual_accelerator::service inherits virtual_accelerator {
     }
   }
 
+  package { "6wind-openstack-extensions":
+    ensure   => 'installed',
+    install_options => ['--allow-unauthenticated'],
+  }
+
   exec { 'vcpu_pin':
       command => "crudini --set ${NOVA_CONF_FILE} DEFAULT vcpu_pin_set $(python /usr/local/bin/get_vcpu_pin_set.py)",
       notify => Service['virtual-accelerator'],
