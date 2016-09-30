@@ -20,6 +20,9 @@ attributes:
     description: 'defines the Virtual Accelerator version to be installed (in 1.x format)'
     weight: 32
     type: "text"
+    restrictions:
+      - condition: "settings:6wind-virtual-accelerator.credentials_package.value == ''"
+        message: "Provide a credentials package"
 
   advanced_params_enabled:
     value: false
