@@ -30,17 +30,17 @@ attributes:
       - condition: "settings:6wind-virtual-accelerator.credentials_package.value == ''"
         message: "Provide a credentials package"
 
-  advanced_params_enabled:
-    value: false
-    label: "Advanced Parameters"
-    description: "Enables configuration of advanced parameters"
-    weight: 35
-    type: "checkbox"
-
   mellanox_support:
     value: false
     label: "Enable Mellanox NICs support"
     description: "Installs 6WIND Virtual Accelerator addon to support Mellanox NICs"
+    weight: 35
+    type: "checkbox"
+
+  advanced_params_enabled:
+    value: false
+    label: "Advanced Parameters"
+    description: "Enables configuration of advanced parameters"
     weight: 36
     type: "checkbox"
 
