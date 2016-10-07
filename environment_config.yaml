@@ -1,5 +1,11 @@
 attributes:
 
+  metadata:
+    group: 'compute'
+    restrictions:
+      - condition: "settings:common.libvirt_type.value != 'kvm'"
+        message: "KVM needs to be chosen as hypervisor"
+
   credentials_package:
     value: ''
     label: 'Credentials package'
