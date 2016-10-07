@@ -16,4 +16,6 @@
   weight: 1000
   conflicts:
     - controller
+    - cinder
+    - ceph-osd
 
