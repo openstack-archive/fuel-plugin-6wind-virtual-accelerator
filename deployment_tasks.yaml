@@ -57,13 +57,23 @@
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
 
-- id: 6wind-virtual-accelerator-neutron-conf
+- id: 6wind-virtual-accelerator-neutron-conf-compute
   type: puppet
-  role: ['primary-controller', '6wind-virtual-accelerator']
+  role: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator-start]
+  requires: [post_deployment_start]
+  parameters:
+    puppet_manifest: puppet/manifests/neutron_conf_compute.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
+- id: 6wind-virtual-accelerator-neutron-conf-controller
+  type: puppet
+  role: [primary-controller]
   required_for: [post_deployment_end]
   requires: [post_deployment_start]
   parameters:
-    puppet_manifest: puppet/manifests/neutron_conf.pp
+    puppet_manifest: puppet/manifests/neutron_conf_controller.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
 

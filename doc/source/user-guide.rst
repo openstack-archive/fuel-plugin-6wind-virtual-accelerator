@@ -101,6 +101,18 @@ This plugin offers the possibility to enable/disable such configuration in Nova
 with a specific option (`Host cpu emulation for guests`) in the advanced
 parameters.
 
+Disable security groups
+-----------------------
+
+By default Fuel installs Openstack with security groups active to enable
+traffic filtering between virtual machines.
+In many cases (including NFV) such filtering is not really necessary
+and it heavily affects vm to vm traffic performances.
+
+6WIND Virtual Accelerator Fuel plugin makes possible to disable such
+security group configuration in both Nova/Neutron via the specific option
+(`Disable neutron securty groups`) in the advanced parameters.
+
 Configure hugepages support for virtual machines
 ------------------------------------------------
 

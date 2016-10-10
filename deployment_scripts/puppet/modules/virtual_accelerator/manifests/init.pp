@@ -14,7 +14,7 @@ class virtual_accelerator {
   $fp_mem = $settings['fp_mem']
   $vm_mem = $settings['vm_mem']
   $va_conf_file = ''
-  $disable_ipset = $settings['disable_ipset']
+  $disable_secgroup = $settings['disable_secgroup']
   $enable_host_cpu = $settings['enable_host_cpu']
   $va_version = $settings['va_version']
   $mellanox_support = $settings['mellanox_support']

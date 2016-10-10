@@ -19,6 +19,13 @@ class virtual_accelerator::nova_conf inherits virtual_accelerator {
     install_options => ['--allow-unauthenticated'],
   }
 
+  if $disable_secgroup == true {
+    exec { 'disable_secgroup':
+        command => "crudini --del ${NOVA_CONF_FILE} DEFAULT security_group_api",
+        notify => Exec['vcpu_pin'],
+    }
+  }
+
   exec { 'vcpu_pin':
       command => "crudini --set ${NOVA_CONF_FILE} DEFAULT vcpu_pin_set $(python /usr/local/bin/get_vcpu_pin_set.py)",
   }
