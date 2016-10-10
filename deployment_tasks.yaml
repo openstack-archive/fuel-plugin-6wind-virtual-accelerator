@@ -51,7 +51,7 @@
   type: puppet
   role: [6wind-virtual-accelerator]
   required_for: [post_deployment_end]
-  requires: [enable_nova_compute_service]
+  requires: [6wind-virtual-accelerator-nova-conf]
   parameters:
     puppet_manifest: puppet/manifests/start_va.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
@@ -64,5 +64,15 @@
   requires: [post_deployment_start]
   parameters:
     puppet_manifest: puppet/manifests/neutron_conf.pp
+    puppet_modules: puppet/modules:/etc/puppet/modules
+    timeout: 3600
+
+- id: 6wind-virtual-accelerator-nova-conf
+  type: puppet
+  role: [6wind-virtual-accelerator]
+  required_for: [6wind-virtual-accelerator-start]
+  requires: [enable_nova_compute_service]
+  parameters:
+    puppet_manifest: puppet/manifests/nova_conf.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
     timeout: 3600
