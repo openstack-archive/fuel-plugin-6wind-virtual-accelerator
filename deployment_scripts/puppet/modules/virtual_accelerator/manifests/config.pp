@@ -17,6 +17,7 @@ class virtual_accelerator::config inherits virtual_accelerator {
 
   $fp_conf_file = "/usr/local/etc/fast-path.env"
   $hugepages_dir = "/dev/hugepages"
+  $license_file = $virtual_accelerator::va_license_file
 
   exec { 'copy_template':
     command => "cp /usr/local/etc/fast-path.env.tmpl ${fp_conf_file}",
@@ -24,6 +25,13 @@ class virtual_accelerator::config inherits virtual_accelerator {
   exec { 'set_hugepages_dir':
     command => "config_va.sh HUGEPAGES_DIR ${hugepages_dir}",
     path    => '/usr/local/bin/',
+  }
+
+  if $license_file != '' and $license_file != undef {
+    file {"/usr/local/etc/6wind_va.lic":
+      ensure  => file,
+      content => $license_file,
+    }
   }
 
   if $advanced_params == true {
@@ -52,15 +60,6 @@ class virtual_accelerator::config inherits virtual_accelerator {
         path    => '/usr/local/bin/',
       }
     }
-
-    $license_file = $virtual_accelerator::va_license_file
-
-    if $license_file != '' and $license_file != undef {
-      file {"/usr/local/etc/6wind_va.lic":
-        ensure  => file,
-        content => $license_file,
-      }
-    }
-
   }
+
 }
