@@ -1,8 +1,8 @@
 - id: 6wind-virtual-accelerator
   type: group
   role: [6wind-virtual-accelerator]
-  requires: [compute]
-  required_for: [deploy_end]
+  requires: [post_deployment_start]
+  required_for: [post_deployment_stop]
   parameters:
    strategy:
      type: one_by_one
@@ -21,7 +21,7 @@
   type: puppet
   groups: [6wind-virtual-accelerator]
   required_for: [6wind-virtual-accelerator-install]
-  requires: [deploy_start]
+  requires: [post_deployment_start]
   parameters:
     puppet_manifest: puppet/manifests/6wind_repo.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
@@ -81,7 +81,7 @@
   type: puppet
   role: [6wind-virtual-accelerator]
   required_for: [6wind-virtual-accelerator-start]
-  requires: [enable_nova_compute_service]
+  requires: [enable_nova_compute_service, 6wind-virtual-accelerator-configure]
   parameters:
     puppet_manifest: puppet/manifests/nova_conf.pp
     puppet_modules: puppet/modules:/etc/puppet/modules
