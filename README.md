@@ -22,7 +22,7 @@ User Guide
 
     1. Create a new environment with the Fuel Web UI wizard.
     2. Click on the Settings tab of the Fuel Web UI.
-    3. Scroll down the page, select the plugin checkbox and edit options
+    3. In Compute section select the plugin checkbox and edit options
        (if desired).
        In particular it is mandatory to provide the 6WIND base64 credentials
        package for software download.

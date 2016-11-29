@@ -108,7 +108,7 @@ Configuring 6WIND Virtual Accelerator Plugin
     .. image:: images/kvm.png
        :width: 90%
 
-#.  Activate the plugin in the Fuel Settings tab
+#.  Activate the plugin in the Fuel Settings tab (Compute section)
 
     .. image:: images/activation.png
        :width: 90%
